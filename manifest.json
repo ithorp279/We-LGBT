@@ -8,8 +8,9 @@
 	},
 
 	"description": "I should fill this in with something accurate",
+
 	"permissions": [
-		"tabs",
+		"tabs", "<all_urls>",
 		"storage"
 	],
 
@@ -23,7 +24,7 @@
 			"19": "img/icons/notfound/icon_19.png",
 			"38": "img/icons/notfound/icon_38.png"
 		},
-		"default_title": "Website not found - We LGBT",
+		"default_title": "We LGBT",
 		"default_popup": "popup.html"
 	},
 
@@ -35,6 +36,10 @@
 					"/js/content_script.js"
 				]
 		}
+	],
+
+	"web_accessible_resources": [
+		"img/*"
 	],
 
 	"manifest_version": 2
