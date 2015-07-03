@@ -9,26 +9,27 @@
 
 	"description": "I should fill this in with something accurate",
 	"permissions": [
-		"declarativeContent",
+		"tabs",
 		"storage"
 	],
 
 	"background": {
 		"scripts": ["js/background.js"],
-		"persistent": false
+		"persistent": true
 	},
 
-	"page_action": {
+	"browser_action": {
 		"default_icon": {
-			"19": "img/icons/icon_19.png",
-			"38": "img/icons/icon_38.png"
+			"19": "img/icons/notfound/icon_19.png",
+			"38": "img/icons/notfound/icon_38.png"
 		},
-		"default_title": "We LGBT",
+		"default_title": "Website not found - We LGBT",
 		"default_popup": "popup.html"
 	},
 
 	"content_scripts": [
 		{
+			"matches": ["<all_urls>"],
 			"js": [
 					"/js/external/jquery.js",
 					"/js/content_script.js"
