@@ -56,16 +56,16 @@
 	<nav style="background-color: #263238;">
 		<div class="nav-wrapper">
 			<i class="mdi-navigation-arrow-back navtext" id="closepopup" style="display: inline; margin-left: 16; font-size: 1.8rem;"></i>
-			<div style="position: absolute; left: 72;" class="navtext">WE LBGT</div>
+			<div style="position: absolute; left: 72;" class="navtext">We LBGT</div>
 		</div>
 	</nav>
-	<nav class="toggle waves-effect waves-light" id="onparent">
+	<nav class="toggle waves-effect waves-light" id="toggleparent">
 		<div class="nav-wrapper">
-			<div class="navtext" style="position: absolute; left: 72; font-weight: 400;" id="on">Off</div>
+			<div class="navtext" style="position: absolute; left: 72; font-weight: 400;" id="toggle">Off</div>
 			<div class="right">
 				<div class="switch">
 					<label>
-						<input type="checkbox" style="position: initial;" id="oninput">
+						<input type="checkbox" style="position: initial;" id="toggleinput">
 						<span class="lever" style="margin-bottom: 2px;"></span>
 					</label>
 				</div>
@@ -76,58 +76,6 @@
 
 	<div class="main">
 		<div class="header">Settings:</div>
-		<div class="setting">
-			<div class="row">
-				<div class="col s10">
-					<div class="settingtitle">Rename HTML Title</div>
-					<div class="settingtext">May interfere with Hangouts' title</div>
-				</div>
-				<div class="col s2">
-					<input type="checkbox" class="filled-in" id="titlesetting" checked="checked"/>
-					<label for="titlesetting" style="position: absolute; right: 24; top: 190;"></label>
-				</div>
-			</div>
-		</div>
-
-		<div class="divider"></div>
-
-		<div class="setting">
-			<div class="row">
-				<div class="col s10">
-					<div class="settingtitle">Append to InnerHTML</div>
-					<div class="settingtext">Adds to name instead of replace</div>
-				</div>
-				<div class="col s2">
-					<input type="checkbox" class="filled-in" id="appendsetting" checked="checked"/>
-					<label for="appendsetting" style="position: absolute; right: 24; top: 278;"></label>
-				</div>
-			</div>
-		</div>
-
-		<div class="divider"></div>
-
-		<div class="setting">
-			<div class="row">
-				<div class="input-field col s12">
-					<i class="mdi-action-schedule prefix"></i>
-					<input id="icon_prefix" type="text">
-					<label for="icon_prefix">Loop Time in Milliseconds</label>
-				</div>
-			</div>
-		</div>
-
-		<div class="divider"></div>
-
-		<a class="btn waves-effect teal" id="sync">Sync</a>
-		<a class="btn waves-effect teal" id="get">get</a>
-	</div>
-
-	<div id="fab" style="position: fixed; bottom: 16; right:16; width: 55.5; height: 161.5; z-index:10;"></div>
-	<!-- mdi-content-clear -->
-	<a class="btn-floating btn-large waves-effect teal autonew tooltipped" data-position="left" data-delay="50" data-tooltip="New Profile" style="position: fixed; bottom:16; right:16;"><i class="mdi-content-add"></i></a>
-	<div class="showonfabhover" id="fab" style="display:none">
-		<a class="btn-floating btn-small waves-effect teal autonew tooltipped" data-position="left" data-delay="50" data-tooltip="From Page" style="position: fixed; bottom:79.5; right:25.25;"><i class="mdi-social-public"></i></a>
-		<a class="btn-floating btn-small waves-effect teal mannew tooltipped" data-position="left" data-delay="50" data-tooltip="From OID" style="position: fixed; bottom:124.5; right:25.25;"><i class="mdi-social-pages"></i></a>
 	</div>
 
 <script src="/js/external/jquery.js"></script>

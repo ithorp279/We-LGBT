@@ -1,29 +1,31 @@
 function toggle(func) {
 	if (window.localStorage == null) {
-		alert('Local storage is required for changing settings.');
+		Materialize.toast('LocalStorage must be enabled for changing settings', 4000);
 		return;
 	}
-	if (func == "on" && window.localStorage.on == "true") {
-		window.localStorage.on = "false";
-	} else if (func == "on") {
-		window.localStorage.on = "true";
+	if (func == "toggle" && window.localStorage.toggle == "true") {
+		window.localStorage.toggle = "false";
+	} else if (func == "toggle") {
+		window.localStorage.toggle = "true";
 	};
+	chrome.storage.sync.set({'toggle': window.localStorage.toggle}, function() {checkError(chrome.runtime.lastError)});
+	chrome.runtime.sendMessage({toggle: window.localStorage.toggle})
 	main();
 }
 
 function main() {
 	if (window.localStorage == null) {
-		alert("LocalStorage must be enabled for changing settings.");
+		Materialize.toast('LocalStorage must be enabled for changing settings', 4000);
 		return;
 	}
 
-	if (window.localStorage.on == "true") {
-		document.getElementById('on').innerHTML = "On";
-		document.getElementById('oninput').checked = true;
+	if (window.localStorage.toggle == "true") {
+		document.getElementById('toggle').innerHTML = "On";
+		document.getElementById('toggleinput').checked = true;
 	}
-	if (window.localStorage.on == "false") {
-		document.getElementById('on').innerHTML = "Off";
-		document.getElementById('oninput').checked = false;
+	if (window.localStorage.toggle == "false") {
+		document.getElementById('toggle').innerHTML = "Off";
+		document.getElementById('toggleinput').checked = false;
 	}
 }
 function checkError(error) {
@@ -34,34 +36,13 @@ function checkError(error) {
 	};
 }
 
-function sync() {
-	// set
-	chrome.storage.sync.set({'on': window.localStorage.on});
-	chrome.storage.sync.set({'title': "true"}, function() {checkError(chrome.runtime.lastError)});
-}
-
-function get() {
-	// get
-	chrome.storage.sync.get(['on', 'title'], function (obj) {
-		window.localStorage.on = obj.on;
-		console.log(obj.on);
-		window.localStorage.title = obj.title;
-		console.log(obj.title);
-		checkError(chrome.runtime.lastError);
-	});
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-	main();
-	document.getElementById('closepopup').addEventListener('click', function() {window.close()})
-	document.getElementById('fab').addEventListener('mouseenter', function() {
-		document.getElementsByClassName('showonfabhover')[0].style.display = "initial";
+	chrome.storage.sync.get(['toggle'], function (obj) {
+		window.localStorage.toggle = obj.toggle;
+		// checkError(chrome.runtime.lastError);
+		main();
+		document.getElementById('closepopup').addEventListener('click', function() {window.close()})
+		document.getElementById('toggleparent').addEventListener('click', function() {toggle("toggle")});
+		document.getElementById('toggleinput').addEventListener('click', function() {toggle("toggle")});
 	});
-	document.getElementById('fab').addEventListener('mouseleave', function() {
-		document.getElementsByClassName('showonfabhover')[0].style.display = "none";
-	});
-	document.getElementById('sync').addEventListener('click', function() {sync()});
-	document.getElementById('get').addEventListener('click', function() {get()});
-	document.getElementById('onparent').addEventListener('click', function() {toggle("on")});
-	document.getElementById('oninput').addEventListener('click', function() {toggle("on")});
 });
