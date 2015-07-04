@@ -27,7 +27,7 @@ chrome.runtime.onMessage.addListener(
 //  Test against array
 function testifgood(url) {
 	lastPassedurl = url;
-	good = ["github.com", "stackoverflow.com", "google.com", "youtube.com", "buzzfeed.com", "att.yahoo.com", "att.com", "uber.com", "lyft.com", "expedia.com", "peta.org", "gap.com", "amazon.com"];
+	good = ["github.com", "stackoverflow.com", "google.com", "youtube.com", "buzzfeed.com", "att.yahoo.com", "att.com", "uber.com", "lyft.com", "expedia.com", "peta.org", "gap.com", "amazon.com", "smile.amazon.com", "amazon.jobs", "aws.amazon.com", "twitch.tv", "audible.com", "dpreview.com", "joyo.com", "diapers.com", "goodreads.com", "imdb.com", "amazon.cn", "z.cn", "amazon.in", "amazon.co.jp", "amazon.fr", "amazon.de", "amazon.it", "amazon.nl", "amazon.es", "amazon.co.uk", "amazon.ca", "amazon.com.mx", "amazon.com.au", "amazon.com.br"];
 	bad = ["focusonthefamily.com"];
 	inbetween = ["hillaryclinton.com"];
 	regood = new RegExp("^https:\/\/" + good.join("|^https:\/\/") + "|^http:\/\/" + good.join("|^http:\/\/") + "|^https:\/\/www." + good.join("|^https:\/\/www.") + "|^http:\/\/www." + good.join("|^http:\/\/www."), "i");
