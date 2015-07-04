@@ -18,13 +18,13 @@ chrome.runtime.onMessage.addListener(
 
 //  Test against array
 function testifgood(url) {
-	good = ["^https:\/\/github.com"];
-	bad = ["http:\/\/www.focusonthefamily.com"];
-	inbetween = ["https:\/\/www.hillaryclinton.com"];
-	regood = new RegExp(good.join("|"), "i");
-	rebad = new RegExp(bad.join("|"), "i");
-	reinbetween = new RegExp(inbetween.join("|"), "i");
-	
+	good = ["github.com", "stackoverflow.com"];
+	bad = ["focusonthefamily.com"];
+	inbetween = ["hillaryclinton.com"];
+	regood = new RegExp("^https:\/\/" + good.join("|^https:\/\/") + "|^http:\/\/" + good.join("|^http:\/\/") + "|^https:\/\/www." + good.join("|^https:\/\/www.") + "|^http:\/\/www." + good.join("|^http:\/\/www."), "i");
+	rebad = new RegExp("^https:\/\/" + bad.join("|^https:\/\/") + "|^http:\/\/" + bad.join("|^http:\/\/") + "|^https:\/\/www." + bad.join("|^https:\/\/www.") + "|^http:\/\/www." + bad.join("|^http:\/\/www."), "i");
+	reinbetween = new RegExp("^https:\/\/" + inbetween.join("|^https:\/\/") + "|^http:\/\/" + inbetween.join("|^http:\/\/") + "|^https:\/\/www." + inbetween.join("|^https:\/\/www.") + "|^http:\/\/www." + inbetween.join("|^http:\/\/www."), "i");
+
 	if (regood.test(url)) {
 		return "good";
 	} else if (rebad.test(url)) {
