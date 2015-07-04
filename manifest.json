@@ -7,7 +7,7 @@
 		"128": "/img/icons/icon_128.png" 
 	},
 
-	"description": "I should fill this in with something accurate",
+	"description": "Chrome Extension for The Support of the LGBT Community",
 
 	"permissions": [
 		"tabs", "<all_urls>",
