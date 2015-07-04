@@ -11,7 +11,14 @@ chrome.runtime.onMessage.addListener(
 			id = request.id;
 		}
 		// alert(url + id);
+
+		// GitHub
 		if (/^https:\/\/github.com/i.test(url)) {
-			document.getElementsByClassName('header-logo-invertocat')[0].innerHTML = '<img src="chrome-extension://affgcnnkppghdeajoheclcgjbcceonij/img/logos/pridetocat.png" width="28" height="28" class="octicon-mark-github pridetocat" alt="GitHub">';
+			document.getElementsByClassName('header-logo-invertocat')[0].innerHTML = '<img src="chrome-extension://affgcnnkppghdeajoheclcgjbcceonij/img/logos/github.png" width="28" height="28" class="octicon-mark-github pridetocat" alt="GitHub">';
+		};
+
+		// StackOverflow
+		if (/^http:\/\/stackoverflow.com/i.test(url) || /^https:\/\/stackoverflow.com/i.test(url)) {
+			document.getElementById('hlogo').childNodes[1].style.backgroundImage = "url('chrome-extension://affgcnnkppghdeajoheclcgjbcceonij/img/logos/stackoverflow.svg')";
 		};
 });
