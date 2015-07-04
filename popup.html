@@ -50,6 +50,30 @@
 	.toast {
 		font-family: Roboto;
 	}
+
+	/* Team */
+	.team-card {
+		margin-right: 0.5% !important;
+		margin-left: 0.5% !important;
+	}
+	.team-text-a {
+		font-weight: 600;
+	}
+	.team-text-p, .team-text-a {
+		font-family: Roboto;
+		font-size: 15;
+	}
+	.team-card {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 100% auto
+	}
+	.team-card.daniel {
+		background-image: url('/img/daniel.png');
+	}
+	.team-card.corbin {
+		background-image: url('/img/corbin.png');
+	}
 </style>
 </head>
 <body>
@@ -75,7 +99,15 @@
 
 
 	<div class="main">
-		<div class="header">Settings:</div>
+		<div class="header">Information:</div>
+		<div class="header">Learn More:</div>
+		<div class="header">Credits:</div>
+			<div class="card-panel z-depth-1 team-card corbin">
+				<span class="white-text team-text-span"><a class="team-text-a" href="https://plus.google.com/u/0/+CorbinCrutchley/">+Corbin Crutchley</a> <p class="team-text-p">I'm a nut about design, Linux, Android, programming, music, and tech.</p></span>
+			</div>
+			<div class="card-panel z-depth-1 team-card daniel">
+				<span class="white-text team-text-span"><a class="team-text-a" href="https://plus.google.com/u/0/+DanielHickman/">+Daniel Hickman</a> <p class="team-text-p">I'm a Tech Enthusiast, Web Developer, and Graphic Designer.</p></span>
+			</div>
 	</div>
 
 <script src="/js/external/jquery.js"></script>

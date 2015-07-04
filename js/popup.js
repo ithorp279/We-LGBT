@@ -27,7 +27,10 @@ function main() {
 		document.getElementById('toggle').innerHTML = "Off";
 		document.getElementById('toggleinput').checked = false;
 	}
+
+	
 }
+
 function checkError(error) {
 	if (error) {
 		Materialize.toast('Error', 4000);
@@ -40,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	chrome.storage.sync.get(['toggle'], function (obj) {
 		window.localStorage.toggle = obj.toggle;
 		// checkError(chrome.runtime.lastError);
-		main();
+		chrome.runtime.sendMessage({message: "open"}, function(response) {
+			url = response.url;
+			test = response.test;
+			main();
+		});
 		document.getElementById('closepopup').addEventListener('click', function() {window.close()})
 		document.getElementById('toggleparent').addEventListener('click', function() {toggle("toggle")});
 		document.getElementById('toggleinput').addEventListener('click', function() {toggle("toggle")});

@@ -16,8 +16,17 @@ chrome.runtime.onMessage.addListener(
 		}
 });
 
+// Recive resquests for cards from popup
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse) {
+    if (request.message == "open") {
+    	sendResponse({url: lastPassedurl, test: testifgood(lastPassedurl)});
+    };
+});
+
 //  Test against array
 function testifgood(url) {
+	lastPassedurl = url;
 	good = ["github.com", "stackoverflow.com", "google.com", "youtube.com", "buzzfeed.com", "att.yahoo.com", "att.com", "uber.com", "lyft.com", "expedia.com", "peta.org", "gap.com"];
 	bad = ["focusonthefamily.com"];
 	inbetween = ["hillaryclinton.com"];
