@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(
 		};
 
 		// StackOverflow
-		if (/^http:\/\/stackoverflow.com|^https:\/\/stackoverflow.com/i.test(url) {
+		if (/^http:\/\/stackoverflow.com|^https:\/\/stackoverflow.com/i.test(url)) {
 			document.getElementById('hlogo').childNodes[1].style.backgroundImage = 'url(' + chrome.extension.getURL("/img/logos/stackoverflow.svg") + ')';
 		};
 });
