@@ -28,7 +28,30 @@ function main() {
 		document.getElementById('toggleinput').checked = false;
 	}
 
-	
+	mainfilter = ["example\\.com"]
+	remainfilter = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + mainfilter.join("|") + ")", "i");
+	if (remainfilter.test(url)) {
+		// Do filter for cards
+	} else {
+		// Hide All
+		document.getElementById('basic-about-notfound').style.display = "none";
+		document.getElementById('basic-about-good').style.display = "none";
+		document.getElementById('basic-about-poor').style.display = "none";
+		document.getElementById('basic-about-medium').style.display = "none";
+		if (test === "good") {
+			// Good basic card
+			document.getElementById('basic-about-good').style.display = "block";
+		} else if (test === "bad") {
+			// Bad basic card
+			document.getElementById('basic-about-poor').style.display = "block";
+		} else if (test === "inbetween") {
+			// Inbetween basic card
+			document.getElementById('basic-about-medium').style.display = "block";
+		} else {
+			// Not Found
+			document.getElementById('basic-about-notfound').style.display = "block";
+		};
+	};	
 }
 
 function checkError(error) {

@@ -2,7 +2,8 @@
 <head>
 	<title>We LBGT</title>
 <script src="js/popup.js"></script>
-<link rel="stylesheet" href="/css/materialize.css"></link>
+<link rel="stylesheet" target="_blank" href="/css/materialize.css"></link>
+<link rel="stylesheet" target="_blank" href="/mdi/css/materialdesignicons.min.css"></link>
 <style>
 	.main {
 		margin-bottom: 71.5;
@@ -43,25 +44,31 @@
 	.toggle:active {
 		background-color: #455a64;
 	}
-	.btn {
+	.btn, .card-action > a {
 		font-family: Roboto;
-		font-size: 15;
+		font-size: 14;
 	}
 	.toast {
 		font-family: Roboto;
 	}
 
+	.card-content > p {
+		font-family: Roboto;
+		font-size: 14;
+	}
+
 	/* Team */
 	.team-card {
-		margin-right: 0.5% !important;
-		margin-left: 0.5% !important;
+		margin-right: 0 !important;
+		margin-left: 0 !important;
+		height: 233.5px;
 	}
 	.team-text-a {
 		font-weight: 600;
 	}
 	.team-text-p, .team-text-a {
 		font-family: Roboto;
-		font-size: 15;
+		font-size: 14;
 	}
 	.team-card {
 		background-repeat: no-repeat;
@@ -100,14 +107,53 @@
 
 	<div class="main">
 		<div class="header">Information:</div>
+			<div class="card blue-grey lighten-1" id="basic-about-medium" style="display: none;">
+				<div class="card-content white-text">
+					<span class="card-title">About this Site</span>
+					<p>This site has a medium standing. There are probably complications that lead us to believe that you should research them before judging. This most likely includes they've recently changed their stance from a poor one and is a two sided story.</p>
+				</div>
+				<div class="card-action right">
+					<a target="_blank" href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=What+is+This+Company+or+Entity's+stance+on+LGBT+rights">Google It</a>
+				</div>
+			</div>
+
+			<div class="card blue-grey lighten-1" id="basic-about-poor" style="display: none;">
+				<div class="card-content white-text">
+					<span class="card-title">About this Site</span>
+					<p>Bummer, this site has a poor standing.</p>
+				</div>
+				<div class="card-action right">
+					<a target="_blank" href="https://twitter.com/intent/tweet?text=Bummer that @EnterTheCompanyHandle is against some or all LGBT rights. I hope they'll change their mind some time.&hashtags=WeLGBT">Tweet</a>
+				</div>
+			</div>
+
+			<div class="card blue-grey lighten-1" id="basic-about-good" style="display: none;">
+				<div class="card-content white-text">
+					<span class="card-title">About this Site</span>
+					<p>This site has a good standing. Feel free to praise them on Twitter, remeber to add their Twitter handle.</p>
+				</div>
+				<div class="card-action right">
+					<a target="_blank" href="https://twitter.com/intent/tweet?text=Thanks%20@EnterTheCompanyHandle%20for%20having%20a%20good%20stance%20on%20LGBT%20rights.%20I%20hope%20you%20continue%20to%20support%20this%20loving%20community.&hashtags=WeLGBT">Tweet</a>
+				</div>
+			</div>
+
+			<div class="card blue-grey lighten-1" id="basic-about-notfound">
+				<div class="card-content white-text">
+					<span class="card-title">About this Site</span>
+					<p>This site wasn't found against out URL filter. Please consider reporting this if this website / entity that owns the website has a standing.</p>
+				</div>
+				<div class="card-action right">
+					<a target="_blank" href="https://github.com/WirelessBytes/We-LGBT/issues/new">Report</a>
+				</div>
+			</div>
 		<div class="header">Learn More:</div>
 			<div class="card blue-grey lighten-1">
 				<div class="card-content white-text">
 					<span class="card-title">Wikipedia</span>
 					<p>Read about History and culture from the contributors of Wikipedia's point of view. All matter is subject to change with information we don't agree with.</p>
 				</div>
-				<div class="card-action">
-					<a href="https://en.wikipedia.org/wiki/LGBT">Link</a>
+				<div class="card-action right">
+					<a target="_blank" href="https://en.wikipedia.org/wiki/LGBT">Link</a>
 				</div>
 			</div>
 
@@ -116,30 +162,38 @@
 					<span class="card-title">Human Rights Watch</span>
 					<p>Read current events that are effecting the rights of people in the LGBT community.</p>
 				</div>
-				<div class="card-action">
-					<a href="http://www.hrw.org/topic/lgbt-rights">Link</a>
+				<div class="card-action right">
+					<a target="_blank" href="http://www.hrw.org/topic/lgbt-rights">Link</a>
 				</div>
 			</div>
 
 			<div class="card blue-grey lighten-1">
 				<div class="card-content white-text">
-					<span class="card-title">Human Rights Watch</span>
-					<p>Read current events that are effecting the rights of people in the LGBT community.</p>
+					<span class="card-title">Find a Center</span>
+					<p>Find a center for the LGBT persons in your area.</p>
 				</div>
-				<div class="card-action">
-					<a href="http://www.hrw.org/topic/lgbt-rights">Link</a>
+				<div class="card-action right">
+					<a target="_blank" href="http://www.lgbtcenters.org/Centers/find-a-center.aspx">Link</a>
 				</div>
 			</div>
 		<div class="header">Credits:</div>
-			<div class="card-panel z-depth-1 team-card corbin">
-				<span class="white-text team-text-span"><a class="team-text-a" href="https://plus.google.com/u/0/+CorbinCrutchley/">+Corbin Crutchley</a> <p class="team-text-p">I'm a nut about design, Linux, Android, programming, music, and tech.</p></span>
+		<div class="row">
+			<div class="col s6" style="padding-left: 0;">
+				<div class="card-panel z-depth-1 team-card corbin">
+					<span class="white-text team-text-span"><a class="team-text-a" target="_blank" href="https://plus.google.com/u/0/+CorbinCrutchley/">+Corbin Crutchley</a> <p class="team-text-p">I'm a nut about design, Linux, Android, programming, music, and tech.</p></span>
+				</div>
 			</div>
-			<div class="card-panel z-depth-1 team-card daniel">
-				<span class="white-text team-text-span"><a class="team-text-a" href="https://plus.google.com/u/0/+DanielHickman/">+Daniel Hickman</a> <p class="team-text-p">I'm a Tech Enthusiast, Web Developer, and Graphic Designer.</p></span>
+			<div class="col s6" style="padding-right: 0;">
+				<div class="card-panel z-depth-1 team-card daniel">
+					<span class="white-text team-text-span"><a class="team-text-a" target="_blank" href="https://plus.google.com/u/0/+DanielHickman/">+Daniel Hickman</a> <p class="team-text-p">I'm a Tech Enthusiast, Web Developer, and Graphic Designer.</p></span>
+				</div>
 			</div>
+		</div>
 	</div>
 
-<script src="/js/external/jquery.js"></script>
-<script src="/js/external/materialize.js"></script>
+	<a class="btn-floating btn-large waves-effect teal autonew tooltipped" data-position="left" data-delay="50" data-tooltip="View Code on GitHub" style="position: fixed; bottom:16; right:16;" href="https://github.com/WirelessBytes/We-LGBT" target="_blank"><i class="mdi mdi-github-circle"></i></a>
+
+	<script src="/js/external/jquery.js"></script>
+	<script src="/js/external/materialize.js"></script>
 </body>
 </html>
