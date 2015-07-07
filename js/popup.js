@@ -28,10 +28,16 @@ function main() {
 		document.getElementById('toggleinput').checked = false;
 	}
 
-	mainfilter = ["example\\.com"]
+	mainfilter = ["2ndvote\\.com"]
 	remainfilter = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + mainfilter.join("|") + ")", "i");
 	if (remainfilter.test(url)) {
 		// Do filter for cards
+		if (remainfilter = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(2ndvote\\.com)", "i");) {
+			// "see exactly how corporations are supporting the erosion of traditional values"
+			
+		} else {
+			// Ugh You're a Stupid Programmer
+		};
 	} else {
 		// Hide All
 		document.getElementById('basic-about-notfound').style.display = "none";
