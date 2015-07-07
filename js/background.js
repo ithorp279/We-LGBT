@@ -1,8 +1,11 @@
-// Set if nothing is availible
-if (typeof toggle === undefined || typeof toggle === null) {
-	toggle = false;
-	alert();
-};
+// Set toggle if isn't availible
+toggle = false;
+// Set if traffic isn't availible
+traffic = 0;
+trafficnf = 0;
+trafficg = 0;
+trafficb = 0;
+trafficib = 0;
 // First toggle set
 chrome.storage.sync.get(['toggle'], function (obj) {
 	toggle = obj.toggle;
@@ -21,7 +24,7 @@ chrome.runtime.onMessage.addListener(
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
     if (request.message == "open") {
-    	sendResponse({url: lastPassedurl, test: testifgood(lastPassedurl)});
+    	sendResponse({url: lastPassedurl, test: testifgood(lastPassedurl), trafg: calctraffic("g"), trafb: calctraffic("b"), trafib: calctraffic("ib"), trafnf: calctraffic("nf")});
     };
 });
 
@@ -46,6 +49,18 @@ function testifgood(url) {
 	};  
 }
 
+function calctraffic (t) {
+	if (t=="g") {
+		return trafficg/traffic*100;
+	} else if (t=="b") {
+		return trafficb/traffic*100;
+	} else if (t=="ib") {
+		return trafficib/traffic*100;
+	} else if (t=="nf") {
+		return trafficnf/traffic*100;
+	};
+}
+
 // Main
 function main(url, id) {
 	test = testifgood(url);
@@ -53,24 +68,32 @@ function main(url, id) {
 	if (test == "good") {
 		chrome.browserAction.setIcon({path: {19: "/img/icons/deafult/icon_19.png", 38: "/img/icons/deafult/icon_38.png"}}, function(){});
 		chrome.browserAction.setTitle({title: "Good Standing - We LGBT"});
+		traffic ++;
+		trafficg ++;
 	};
 
 	// Bad Icon and Title
 	if (test == "bad") {
 		chrome.browserAction.setIcon({path: {19: "/img/icons/poor/icon_19.png", 38: "/img/icons/poor/icon_38.png"}}, function(){});
 		chrome.browserAction.setTitle({title: "Poor Standing - We LGBT"});
+		traffic ++;
+		trafficb ++;
 	};
 
 	// Inbetween Icon and Title
 	if (test == "inbetween") {
 		chrome.browserAction.setIcon({path: {19: "/img/icons/inbetween/icon_19.png", 38: "/img/icons/inbetween/icon_38.png"}}, function(){});
 		chrome.browserAction.setTitle({title: "Medium Standing - We LGBT"});
+		traffic ++;
+		trafficib ++;
 	};
 
 	// Notfound Icon and Title
 	if (test == "notfound") {
 		chrome.browserAction.setIcon({path: {19: "/img/icons/notfound/icon_19.png", 38: "/img/icons/notfound/icon_38.png"}}, function(){});
 		chrome.browserAction.setTitle({title: "Not Found - We LGBT"});
+		traffic ++;
+		trafficnf ++;
 	};
 }
 

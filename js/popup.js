@@ -67,7 +67,9 @@ function main() {
 			// Not Found
 			document.getElementById('basic-about-notfound').style.display = "block";
 		};
-	};	
+	};
+
+	document.getElementById('webtraffic').innerHTML = "Your web traffic this session is " + Math.round(trafg) + "% supportive, " + Math.round(trafb) + "% not supportive, " + Math.round(trafib) + "% inbetween and, " + Math.round(trafnf) + "% with no found standing. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
 }
 
 function checkError(error) {
@@ -85,6 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		chrome.runtime.sendMessage({message: "open"}, function(response) {
 			url = response.url;
 			test = response.test;
+			trafg = response.trafg;
+			trafb = response.trafb;
+			trafib = response.trafib;
+			trafnf = response.trafnf;
 			main();
 		});
 		document.getElementById('closepopup').addEventListener('click', function() {window.close()})
