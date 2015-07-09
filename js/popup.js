@@ -46,6 +46,7 @@ function main() {
 			document.getElementById('custom-action').href = "https://twitter.com/intent/tweet?text=Bummer that @2ndVote is against gay marriage. I hope they'll change their mind some time.&hashtags=WeLGBT";			
 		} else {
 			// Ugh You're a Stupid Programmer
+			// "minecraft\\.net", "mojang\\.com"
 		};
 	} else {
 		// Hide All
