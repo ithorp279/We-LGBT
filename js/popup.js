@@ -28,7 +28,7 @@ function main() {
 		document.getElementById('toggleinput').checked = false;
 	}
 
-	mainfilter = ["2ndvote\\.com"]
+	mainfilter = ["2ndvote\\.com", "minecraft\\.net", "mojang\\.com"]
 	remainfilter = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + mainfilter.join("|") + ")", "i");
 	if (remainfilter.test(url)) {
 		// Do filter for cards
@@ -37,16 +37,19 @@ function main() {
 		document.getElementById('basic-about-good').style.display = "none";
 		document.getElementById('basic-about-poor').style.display = "none";
 		document.getElementById('basic-about-medium').style.display = "none";
-		// 2ndVote
 		document.getElementById('basic-about-custom').style.display = "block";
-		if (remainfilter = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(2ndvote\\.com)", "i")) {
+		if (/^(http)?(s)?(:\/\/)?(\w+\.)*(2ndvote\.com)"/i.test(url)) {
+			// 2ndVote
 			document.getElementById('custom-title').innerHTML = "About 2ndVote";
 			document.getElementById('custom-text').innerHTML = "Wrote in almost an unbiased format, this site contains phrases including \"see exactly how corporations are supporting the erosion of traditional values\". We consider this to be a poor standing.";
 			document.getElementById('custom-action').innerHTML = "Tweet";
-			document.getElementById('custom-action').href = "https://twitter.com/intent/tweet?text=Bummer that @2ndVote is against gay marriage. I hope they'll change their mind some time.&hashtags=WeLGBT";			
-		} else {
-			// Ugh You're a Stupid Programmer
-			// "minecraft\\.net", "mojang\\.com"
+			document.getElementById('custom-action').href = "https://twitter.com/intent/tweet?text=Bummer that @2ndVote is against gay marriage. I hope they'll change their mind some time.&hashtags=WeLGBT";
+		} else if (/^(http)?(s)?(:\/\/)?(\w+\.)*(minecraft\.net)|(mojang\.com)/i.test(url)){
+			// Mojang and Minecraft
+			document.getElementById('custom-title').innerHTML = "About Mojang and Minecraft";
+			document.getElementById('custom-text').innerHTML = "Mojang changed their Twitter profile picture to a rainbow version of their logo for many weeks but offered no statement and didn't sign any petitions.";
+			document.getElementById('custom-action').innerHTML = "Tweet";
+			document.getElementById('custom-action').href = "https://twitter.com/intent/tweet?text=I'm glad that @mojang seems to support gay rights!&hashtags=WeLGBT";
 		};
 	} else {
 		// Hide All
