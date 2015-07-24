@@ -53,4 +53,17 @@ chrome.runtime.onMessage.addListener(
 		};
 
 		// ---- FACEBOOK LOGOS ----
+		// BuzzFeed
+		if (/^(http)(s)?(:\/\/)(\w+\.)*facebook.com\/BuzzFeed/i.test(url)) {
+			document.getElementsByClassName('profilePic img')[0].src = chrome.extension.getURL("/img/logos/buzzfeed.png");
+		};
+
+		// ---- In Page Badges ----
+		// Facebook
+		if (/^(http)(s)?(:\/\/)(\w+\.)*facebook.com\/BuzzFeed/i.test(url)) {
+			badge = document.createElement("span");
+			badge.class = "_5rqu";
+			badge.innerHTML = '<span data-hover="tooltip" data-tooltip-position="right" class="_56_f _5dzy _5d-1 _5d-3" id="u_0_x" aria-label="Pro-LGBT Page"></span>';
+			document.getElementsByClassName('_5rqt')[0].appendChild(badge);
+		};
 });
