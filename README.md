@@ -1,4 +1,5 @@
 # We LBGT
+![Screenshot](https://cloud.githubusercontent.com/assets/5341898/8867405/c2c982f6-317d-11e5-89d2-f7dbc9576a37.png)
 ## Description:
 We LGBT is an extension with delightful additions to the web browsing experience relating positively with the LGBT+ community.
 
