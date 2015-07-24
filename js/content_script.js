@@ -33,6 +33,10 @@ chrome.runtime.onMessage.addListener(
 		if (/^(http)(s)?(:\/\/)(\w+\.)*twitter.com\/reddit/i.test(url)) {
 			document.getElementsByClassName('ProfileAvatar-image')[0].src = chrome.extension.getURL("/img/logos/reddit.png");
 		};
+		// Spotify
+		if (/^(http)(s)?(:\/\/)(\w+\.)*twitter.com\/spotify/i.test(url)) {
+			document.getElementsByClassName('ProfileAvatar-image')[0].src = chrome.extension.getURL("/img/logos/spotify.jpg");
+		};
 
 		// ---- GOOGLE+ LOGOS ----
 		// Reddit
@@ -42,6 +46,10 @@ chrome.runtime.onMessage.addListener(
 		// BuzzFeed
 		if (/^(http)(s)?(:\/\/)plus.google.com\/\+BuzzFeed/i.test(url)) {
 			document.getElementsByClassName('fa-kz Zxa')[0].src = chrome.extension.getURL("/img/logos/buzzfeed.png");
+		};
+		// Spotify
+		if (/^(http)(s)?(:\/\/)plus.google.com\/\+Spotify/i.test(url)) {
+			document.getElementsByClassName('fa-kz Zxa')[0].src = chrome.extension.getURL("/img/logos/spotify.jpg");
 		};
 
 		// ---- FACEBOOK LOGOS ----
