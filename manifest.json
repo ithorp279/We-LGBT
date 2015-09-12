@@ -7,7 +7,7 @@
 		"128": "/img/icons/icon_128.png" 
 	},
 
-	"description": "Chrome Extension for The Support of the LGBT Community",
+	"description": "Extension for the Lesbian, Gay, Bi, Transgender + Community",
 
 	"permissions": [
 		"tabs", "<all_urls>",
