@@ -8,7 +8,7 @@ We LGBT is an extension with delightful additions to the web browsing experience
 - Download the newest `We-LGBT.crx` file
 - Drag the file into `chrome://extensions`and enable
 
-## Reporting Issues / Suggesting
+## Reporting Issues / Suggesting:
 Please head to out [new issues page](https://github.com/WirelessBytes/We-LGBT/issues/new)
 
 ## About:
