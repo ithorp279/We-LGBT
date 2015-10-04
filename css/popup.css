@@ -1,0 +1,83 @@
+.main {
+	margin-bottom: 71.5px;
+	margin-top: 20px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+.setting {
+	margin: 20px 0;
+}
+.row {
+	margin-bottom: 0;
+}
+.settingtitle {
+	font-family: Roboto;
+	font-size: 18px;
+}
+.settingtext {
+	color: #9e9e9e;
+	font-family: Roboto;
+	font-size: 14px;
+}
+.navtext {
+	font-size: 1.5rem;
+	color:#fff;
+	display: inline-block;
+	font-weight: 500;
+}
+.header {
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	color: #009688;
+}
+.toggle {
+	background-color: #37474f;
+	margin-top: 56px;
+}
+.toggle:active {
+	background-color: #455a64;
+}
+.btn, .card-action > a {
+	font-family: Roboto;
+	font-size: 14px;
+}
+.toast {
+	font-family: Roboto;
+}
+
+.card-content > p {
+	font-family: Roboto;
+	font-size: 14px;
+}
+
+/* Team */
+.team-card {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+	height: 233.5px;
+}
+.team-text-a {
+	font-weight: 600;
+}
+.team-text-p, .team-text-a {
+	font-family: Roboto;
+	font-size: 14px;
+}
+.team-card {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% auto
+}
+.team-card.daniel {
+	background-image: url('/img/daniel.png');
+}
+.team-card.corbin {
+	background-image: url('/img/corbin.png');
+}
+
+/* Materialize Override Nav Change with Scrollbars */
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+	height: 56px;
+	line-height: 56px;
+}
