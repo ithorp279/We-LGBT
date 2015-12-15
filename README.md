@@ -1,12 +1,10 @@
 # We LBGT
 ![Banner](https://raw.githubusercontent.com/xorprojects/We-LGBT/master/marquee.png)
 ## Description:
-We LGBT is an extension with delightful additions to the web browsing experience relating positively with the LGBT+ community.
+We LGBT is an extension with delightful additions to the web browsing experience relating to the LGBT+ community.
 
 #### Features:
 - Icon changes color when on a website that's owner supports LGBT+ rights
-- Some logos change to their LGBT+ supportive one (off by default)
-- Some profile pictures change to their LGBT+ supportive one (off by default)
 
 ## Installation:
 #### Chrome Webstore:
@@ -24,15 +22,15 @@ Please head to out [new issues page](https://github.com/WirelessBytes/We-LGBT/is
 
 ## About:
 
-### How Standings are Figured:
+### How Reputations are Figured:
 Standings are figured based on current or recent actions. If one positive source is found for any one part of the LGBT+ spectrum, it's assumed that they have a positive stance across the board until evidence of negative actions are found.
 
-The whole Internet starts out with the "not found" and gets promoted as we find sources or they're reported to us. 
+The whole Internet starts out with "Not Found" and gets promoted or demoted as we find sources or they're reported to us. 
 
-Currently most of the filter contains companies that signed the Amicus Brief or has shown support by changing their logo after the legalization of equal marriage rights in the U.S.
+Currently most of the filter contains companies that signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a> or has shown support by changing their logo after the legalization of equal marriage rights in the U.S.
 
 ### Permissions:
-- `Access your data on all websites` - To view the page you're on to tell you the standing of the website, and to run the content script that changes logos and profile pictures (off by default).
+- `Read and change your data on the websites you visit` - To view the page you're on to tell you the reputation of the website.
 - No data is sent to servers and only the amount of sites you vist is recorded locally (resets after restart).
 
 ## License:
@@ -46,7 +44,3 @@ https://github.com/Dogfalo/materialize/blob/master/LICENSE
 #### Material Design Icons - Templarian:
 SIL Open Font License, Version 1.1
 https://github.com/Templarian/MaterialDesign/blob/master/license.txt
-
-#### Material Design Icons - Google:
-Creative Commons BY Attribution 4.0 International
-https://github.com/google/material-design-icons/blob/master/LICENSE
