@@ -1,61 +1,57 @@
-function main() {
-	mainfilter = ["2ndvote\\.com", "minecraft\\.net", "mojang\\.com"]
-	remainfilter = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + mainfilter.join("|") + ")", "i");
-	if (remainfilter.test(url)) {
-		// Do filter for cards
-		// Hide All
-		document.getElementById('basic-about-notfound').style.display = "none";
-		document.getElementById('basic-about-good').style.display = "none";
-		document.getElementById('basic-about-poor').style.display = "none";
-		document.getElementById('basic-about-medium').style.display = "none";
-		document.getElementById('basic-about-custom').style.display = "block";
-		if (/^(http)?(s)?(:\/\/)?(\w+\.)*(2ndvote\.com)"/i.test(url)) {
-			// 2ndVote
-			document.getElementById('custom-title').innerHTML = "About 2ndVote";
-			document.getElementById('custom-text').innerHTML = "Wrote in an unbiased format, this site contains phrases including \"see exactly how corporations are supporting the erosion of traditional values\". We consider this not supportive.";
-			document.getElementById('custom-action').innerHTML = "Tweet";
-			document.getElementById('custom-action').href = "https://twitter.com/intent/tweet?text=Bummer that @2ndVote is against gay marriage. I hope they'll change their mind some time.&hashtags=WeLGBT";
-		} else if (/^(http)?(s)?(:\/\/)?(\w+\.)*(minecraft\.net)|(mojang\.com)/i.test(url)){
-			// Mojang and Minecraft
-			document.getElementById('custom-title').innerHTML = "About Mojang and Minecraft";
-			document.getElementById('custom-text').innerHTML = "Mojang changed their Twitter profile picture to a rainbow version of their logo for many weeks but offered no statement and didn't sign any petitions that we could find.";
-			document.getElementById('custom-action').innerHTML = "Tweet";
-			document.getElementById('custom-action').href = "https://twitter.com/intent/tweet?text=I'm glad that @mojang seems to support gay rights!&hashtags=WeLGBT";
-		};
-	} else {
-		// Hide All
-		document.getElementById('basic-about-notfound').style.display = "none";
-		document.getElementById('basic-about-good').style.display = "none";
-		document.getElementById('basic-about-poor').style.display = "none";
-		document.getElementById('basic-about-medium').style.display = "none";
-		document.getElementById('basic-about-custom').style.display = "none";
-		if (rep === "su") {
-			// Good basic card
-			document.getElementById('basic-about-good').style.display = "block";
-		} else if (rep === "it") {
-			// Inbetween basic card
-			document.getElementById('basic-about-medium').style.display = "block";
-		} else if (rep === "ns") {
-			// Bad basic card
-			document.getElementById('basic-about-poor').style.display = "block";
-		} else {
-			// Not Found
-			document.getElementById('basic-about-notfound').style.display = "block";
-		};
-	};
-
-	document.getElementById('webtraffic').innerHTML = "Your web traffic this session is " + Math.round(trafficSu) + "% supportive, " + Math.round(trafficIt) + "% intermediate, " + Math.round(trafficNs) + "% not supportive and, " + Math.round(trafficNf) + "% with no found standing. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
-}
-
-document.addEventListener('DOMContentLoaded', function () {
+doc = document;
+doc.addEventListener('DOMContentLoaded', function () {
 	chrome.runtime.sendMessage({message: "open"}, function(response) {
 		url = response.url;
 		rep = response.rep;
+		obj = response.obj;
+		traffic = response.traffic;
 		trafficSu = response.trafficSu;
 		trafficIt = response.trafficIt;
 		trafficNs = response.trafficNs;
 		trafficNf = response.trafficNf;
-		main();
+		domain = url.replace(/^(http)?(s)?(:\/\/)?(www\.)?/i, "").replace(/(\/.*)$/i, "");
+		
+		at = doc.getElementById('about-title');
+		ap = doc.getElementById('about-p');
+		aa = doc.getElementById('about-a');
+		cc = doc.getElementById('contribute-card');
+		cp = doc.getElementById('contribute-p');
+		ca = doc.getElementById('contribute-a');
+
+		if (typeof obj === "undefined") {
+			at.innerHTML = "About This Site";
+			aa.parentElement.classList.add("hidden");
+			cc.classList.remove("hidden");
+			cp.innerHTML = "We don't have any information for " + domain +", could you contribute what you know about it?";
+			ca.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:" + encodeURIComponent(domain) + "&body=-%20Name:%20%0A-%20Description:%20";
+			if (rep == "su") {
+				ap.innerHTML = "This site is supportive."
+			};
+			if (rep == "it") {
+				ap.innerHTML = "This site is intermediate."
+			};
+			if (rep == "ns") {
+				ap.innerHTML = "This site is not supportive."
+			};
+			if (rep == "nf") {
+				ap.innerHTML = "This site isn't in our filter."
+			};
+		} else {
+			at.innerHTML = obj.name;
+			cc.classList.add("hidden");
+			ap.innerHTML = obj.description;
+			if (typeof obj["custom action"] === "undefined") {
+				aa.parentElement.classList.add("hidden");
+			} else {
+				aa.parentElement.classList.remove("hidden");
+				aa.href = obj["custom action"].href;
+				aa.innerHTML = obj["custom action"].innerHTML;
+			};
+		}
+
+		if (typeof traffic === "number" && traffic > 0) {
+			doc.getElementById('webtraffic').innerHTML = "Your web traffic this session is " + Math.round(trafficSu) + "% supportive, " + Math.round(trafficIt) + "% intermediate, " + Math.round(trafficNs) + "% not supportive and, " + Math.round(trafficNf) + "% with no found standing. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
+		};
 	});
 	document.getElementById('closepopup').addEventListener('click', function() {window.close()})
 });

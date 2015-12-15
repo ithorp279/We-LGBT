@@ -1,10 +1,3 @@
-/*
-Supportive: su
-Intermediate: it
-Not Supportive: ns
-Not Found: nf
-*/
-
 function getJSON(url, local, callback) {
 	var request = new XMLHttpRequest();
 	request.open('GET', url, true);
@@ -37,7 +30,6 @@ function getJSON(url, local, callback) {
 	request.send();
 }
 
-
 // Patterns
 if (typeof su === "undefined" || typeof it === "undefined" || typeof ns === "undefined") {
 	su = {
@@ -57,7 +49,7 @@ if (typeof su === "undefined" || typeof it === "undefined" || typeof ns === "und
 	};
 
 	// Get Patterns
-	getJSON("/js/rep.json", "/js/rep.json", getPatterns);
+	getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/js/rep.json", "/js/rep.json", getPatterns);
 };
 function getPatterns(data) {
 	su.data = data.supportive;
@@ -85,6 +77,49 @@ function getPatterns(data) {
 	}
 }
 
+function getObj() {
+	if (rep == "su") {
+		for (var i in su.data) {
+			if (typeof su.data[i] === "object") {
+				if (Array.isArray(su.data[i].url)) {
+					var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + su.data[i].url.join("|") + ")", "i");
+				} else {
+					var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + su.data[i].url + ")", "i");
+				};
+				if (regex.test(url)) {
+					return su.data[i];
+				}
+			}
+		}
+	} else if (rep == "it") {
+		for (var i in it.data) {
+			if (typeof it.data[i] === "object") {
+				if (Array.isArray(it.data[i].url)) {
+					var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + it.data[i].url.join("|") + ")", "i");
+				} else {
+					var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + it.data[i].url + ")", "i");
+				};
+				if (regex.test(url)) {
+					return it.data[i];
+				}
+			}
+		}
+	} else if (rep == "ns") {
+		for (var i in ns.data) {
+			if (typeof ns.data[i] === "object") {
+				if (Array.isArray(ns.data[i].url)) {
+					var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + ns.data[i].url.join("|") + ")", "i");
+				} else {
+					var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + ns.data[i].url + ")", "i");
+				};
+				if (regex.test(url)) {
+					return ns.data[i];
+				}
+			}
+		}
+	}
+}
+
 // Variables
 if (typeof traffic === 'undefined' || typeof trafficSu === 'undefined' || typeof trafficIt === 'undefined' || typeof trafficNs === 'undefined' || typeof trafficNf === 'undefined') {
 	traffic = 0;
@@ -103,7 +138,7 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 	if (request.message == "open") {
 		trafficPercents = [trafficSu/traffic*100, trafficIt/traffic*100, trafficNs/traffic*100, trafficNf/traffic*100];
-		sendResponse({url: url, rep: rep, trafficSu: trafficPercents[0], trafficIt: trafficPercents[1], trafficNs: trafficPercents[2], trafficNf: trafficPercents[3]});
+		sendResponse({url: url, rep: rep, traffic: traffic, trafficSu: trafficPercents[0], trafficIt: trafficPercents[1], trafficNs: trafficPercents[2], trafficNf: trafficPercents[3], obj: getObj()});
 	};
 });
 

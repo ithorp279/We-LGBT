@@ -10,8 +10,7 @@
 	"description": "Extension for the Lesbian, Gay, Bi, Transgender + Community",
 
 	"permissions": [
-		"tabs", "<all_urls>",
-		"storage"
+		"tabs", "<all_urls>"
 	],
 
 	"background": {

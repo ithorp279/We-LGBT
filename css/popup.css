@@ -38,7 +38,12 @@
 body * {
 	font-family: 'Roboto', sans-serif;
 }
-
+.hidden {
+	display: none;
+}
+.card .card-action {
+    border-top: none;
+}
 .main {
 	margin-bottom: 71.5px;
 	margin-top: 64px;
