@@ -21,26 +21,12 @@
 
 	"browser_action": {
 		"default_icon": {
-			"19": "/img/icons/notfound/icon_19.png",
-			"38": "/img/icons/notfound/icon_38.png"
+			"19": "/img/icons/not-found/icon_19.png",
+			"38": "/img/icons/not-found/icon_38.png"
 		},
 		"default_title": "Not Found - We LGBT",
 		"default_popup": "/html/popup.html"
 	},
-
-	"content_scripts": [
-		{
-			"matches": ["<all_urls>"],
-			"js": [
-					"/js/external/jquery.js",
-					"/js/content_script.js"
-				]
-		}
-	],
-
-	"web_accessible_resources": [
-		"img/*"
-	],
 
 	"manifest_version": 2
 }
