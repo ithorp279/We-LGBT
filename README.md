@@ -31,7 +31,7 @@ Currently most of the filter contains companies that signed the <a href=\"http:/
 
 ### Permissions:
 - `Read and change your data on the websites you visit` - To view the page you're on to tell you the reputation of the website.
-- No data is sent to servers and only the amount of sites you vist is recorded locally (resets after restart).
+- No data is sent to servers and only the amount of sites you visit is recorded locally (resets after restart).
 
 ## License:
 #### Our Extension:
