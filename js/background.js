@@ -1,33 +1,38 @@
-function getJSON(url, local, callback) {
-	var request = new XMLHttpRequest();
-	request.open('GET', url, true);
+function getJSON(url, local) {
+  return new Promise(function(resolve, reject) {
+    function handleError(connectionError) {
+      var usingBackup = typeof local === "undefined";
+      var message = (connectionError ? "There was a connection error of some sort" : "We reached our target server, but it returned an error") +
+        (usingBackup ? ". Using" : " and there wasn't a") +
+        " backup local file.";
+      if (usingBackup) {
+        console.warn(message);
+        resolve(getJSON(local, null));
+      } else {
+        console.error(message);
+        reject();
+      }
+    }
 
-	request.onload = function() {
-		if (this.status >= 200 && this.status < 400) {
-		// Success!
-		var data = JSON.parse(this.response);
-		callback(data);
-		return;
-		} else {
-		if (typeof local === "undefined") {
-			console.log("Error: We reached our target server, but it returned an error and there wasn't a backup local file.");
-		} else {
-			console.log("Warning: We reached our target server, but it returned an error. Using backup local file.");
-			getJSON(local, null, callback);
-		};
-		}
-	};
+    var request = new XMLHttpRequest();
+    request.open("GET", url, true);
 
-	request.onerror = function() {
-		if (typeof local === "undefined") {
-			console.log("Error: There was a connection error of some sort and there wasn't a backup local file.");
-		} else {
-			console.log("Warning: There was a connection error of some sort. Using backup local file.");
-			getJSON(local, null, callback);
-		};
-	};
+    request.addEventListener("load", function() {
+      if (this.status >= 200 && this.status < 400) {
+        // Success!
+        var data = JSON.parse(this.response);
+        resolve(data);
+        return;
+      }
+      handleError(false);
+    });
 
-	request.send();
+    request.addEventListener("error", function() {
+      handleError(true);
+    });
+
+    request.send();
+  });
 }
 
 // Patterns
@@ -49,7 +54,7 @@ if (typeof su === "undefined" || typeof it === "undefined" || typeof ns === "und
 	};
 
 	// Get Patterns
-	getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/js/rep.json", "/js/rep.json", getPatterns);
+	getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/js/rep.json", "/js/rep.json").then(getPatterns);
 };
 function getPatterns(data) {
 	su.data = data.supportive;
