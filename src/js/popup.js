@@ -2,6 +2,13 @@
 (function() {
   "use strict";
 
+  var repAboutPData = {
+    "su": "This site is supportive.",
+    "it": "This site is intermediate.",
+    "ns": "This site is not supportive.",
+    "nf": "This site isn't in our filter."
+  };
+
   function init() {
     chrome.runtime.sendMessage({
       "message": "open"
@@ -29,18 +36,7 @@
         cc.classList.remove("hidden");
         cp.textContent = "We don't have any information for " + domain + ", could you contribute what you know about it?";
         ca.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:" + encodeURIComponent(domain) + "&body=-%20Name:%20%0A-%20Description:%20";
-        if (rep === "su") {
-          ap.textContent = "This site is supportive.";
-        }
-        if (rep === "it") {
-          ap.textContent = "This site is intermediate.";
-        }
-        if (rep === "ns") {
-          ap.textContent = "This site is not supportive.";
-        }
-        if (rep === "nf") {
-          ap.textContent = "This site isn't in our filter.";
-        }
+        ap.textContent = repAboutPData[rep];
       } else {
         at.innerHTML = obj.name;
         cc.classList.add("hidden");

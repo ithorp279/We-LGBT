@@ -74,14 +74,19 @@
     var obj = [su, it, ns];
     for (var o in [su, it, ns]) {
       for (var i in obj[o].data) {
-        if (typeof obj[o].data[i] === "string") {
-          obj[o].array.push(obj[o].data[i].replace(/\./g, "\\."));
-        } else if (typeof obj[o].data[i] === "object") {
-          if (typeof obj[o].data[i].url === "string") {
-            obj[o].array.push(obj[o].data[i].url.replace(/\./g, "\\."));
-          } else if (Array.isArray(obj[o].data[i].url)) {
-            for (var u in obj[o].data[i].url) {
-              obj[o].array.push(obj[o].data[i].url[u].replace(/\./g, "\\."));
+        var dataI = typeof obj[o].data[i];
+        if (typeof dataI === "string") {
+          obj[o].array.push(dataI.replace(/\./g, "\\."));
+        } else {
+          if (typeof dataI === "object") {
+            if (typeof dataI.url === "string") {
+              obj[o].array.push(dataI.url.replace(/\./g, "\\."));
+            } else {
+              if (Array.isArray(dataI.url)) {
+                for (var u in dataI.url) {
+                  obj[o].array.push(dataI.url[u].replace(/\./g, "\\."));
+                }
+              }
             }
           }
         }
