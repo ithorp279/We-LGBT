@@ -172,7 +172,7 @@
   });
 
   // Main
-  function main(id) {
+  function main() {
     // Test Against Regular Expression
     if (!su.regex == "" && su.regex.test(url)) {
       rep = "su";
@@ -216,7 +216,7 @@
   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     if (changeInfo.status === "complete") {
       url = tab.url;
-      main(tabId);
+      main();
     }
   });
 
@@ -227,7 +227,7 @@
       "lastFocusedWindow": true
     }, function(tabs) {
       url = tabs[0].url;
-      main(tabs[0].id);
+      main();
     });
   });
 })();
