@@ -157,10 +157,7 @@
 			"max": 30,
 			"exceptions": ["a", "b", "g", "e", "i", "x", "y", "ev", "id", "bm"]
 		}],
-		"indent": [2, 2, {
-			"SwitchCase": 2,
-			"VariableDeclarator": 2
-		}],
+		"indent": [2, "tab"],
 		"key-spacing": [2, {
 		     "beforeColon": false,
 		     "afterColon": true
