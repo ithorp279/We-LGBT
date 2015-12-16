@@ -24,10 +24,10 @@
       var ca = document.getElementById("contribute-a");
 
       if (typeof obj === "undefined") {
-        at.innerHTML = "About This Site";
+        at.textContent = "About This Site";
         aa.parentElement.classList.add("hidden");
         cc.classList.remove("hidden");
-        cp.innerHTML = "We don't have any information for " + domain + ", could you contribute what you know about it?";
+        cp.textContent = "We don't have any information for " + domain + ", could you contribute what you know about it?";
         ca.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:" + encodeURIComponent(domain) + "&body=-%20Name:%20%0A-%20Description:%20";
         if (rep === "su") {
           ap.textContent = "This site is supportive.";
@@ -55,7 +55,7 @@
       }
 
       if (typeof traffic === "number" && traffic > 0) {
-        document.getElementById("webtraffic").innerHTML = "Your web traffic this session is " + Math.round(trafficSu) + "% supportive, " + Math.round(trafficIt) + "% intermediate, " + Math.round(trafficNs) + "% not supportive and, " + Math.round(trafficNf) + "% with no found standing. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
+        document.getElementById("webtraffic").textContent = "Your web traffic this session is " + Math.round(trafficSu) + "% supportive, " + Math.round(trafficIt) + "% intermediate, " + Math.round(trafficNs) + "% not supportive and, " + Math.round(trafficNf) + "% with no found standing. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
       }
     });
     document.getElementById("closepopup").addEventListener("click", function() {
