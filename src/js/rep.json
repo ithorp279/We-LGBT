@@ -1,6 +1,14 @@
 {
 	"supportive": [
-		"hrw.org",
+		{
+			"url": "hrw.org",
+			"name": "Human Rights Watch",
+			"description": "Human Rights Watch is supportive of the LGBT+ community.",
+			"custom action": {
+				"innerHTML": "Topic",
+				"href": "https://www.hrw.org/topic/lgbt-rights "
+			}
+		},
 		"indiana.edu",
 		"medium.com",
 		"github.com",
