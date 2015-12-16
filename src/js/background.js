@@ -116,7 +116,7 @@
     };
 
     // Get Patterns
-    getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/js/rep.json", "/js/rep.json").then(getPatterns);
+    getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/rep.json", "/js/rep.json").then(getPatterns);
   }
 
   function getObjFromData(data) {
