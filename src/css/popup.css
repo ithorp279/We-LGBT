@@ -3,13 +3,6 @@
 @font-face {
 	font-family: 'Roboto';
 	font-style: normal;
-	font-weight: 100;
-	src: local('Roboto Thin'), local('Roboto-Thin'), url(/font/roboto/Roboto-Thin.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-@font-face {
-	font-family: 'Roboto';
-	font-style: normal;
 	font-weight: 300;
 	src: local('Roboto Light'), local('Roboto-Light'), url(/font/roboto/Roboto-Light.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
@@ -28,12 +21,28 @@
 	src: local('Roboto Medium'), local('Roboto-Medium'), url(/font/roboto/Roboto-Meduim.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+/* Material Design Icons */
 @font-face {
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 700;
-	src: local('Roboto Bold'), local('Roboto-Bold'), url(/font/roboto/Roboto-Bold.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+	font-family: MaterialDesignIcons;
+	src: url(/font/materialdesignicons-webfont.woff2?v=1.1.70) format("woff2");
+	font-weight: 400;
+	font-style: normal
+}
+.mdi {
+	display: inline-block;
+	font: normal normal normal 24px/1 MaterialDesignIcons;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0)
+}
+.mdi-close::before {
+	content: "\f216"
+}
+.mdi-github-circle::before {
+	content: "\f325"
 }
 
 
