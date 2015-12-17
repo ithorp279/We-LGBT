@@ -6,7 +6,7 @@
 			"description": "Human Rights Watch is supportive of the LGBT+ community.",
 			"custom action": {
 				"innerHTML": "Topic",
-				"href": "https://www.hrw.org/topic/lgbt-rights "
+				"href": "https://www.hrw.org/topic/lgbt-rights"
 			}
 		},
 		"indiana.edu",
@@ -647,8 +647,7 @@
 		"freedomtomarry.org",
 		"carlosjeurissen.com"
 	],
-	"intermediate": [
-	],
+	"intermediate": [],
 	"not supportive": [
 		"focusonthefamily.com",
 		"takebackmarriage.org",
@@ -662,6 +661,6 @@
 			}
 		},
 		"godhatesfags.com",
-		"upperroommedia.com" 
+		"upperroommedia.com"
 	]
 }

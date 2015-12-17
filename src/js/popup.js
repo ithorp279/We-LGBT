@@ -17,41 +17,41 @@
 			var rep = response.rep;
 			var obj = response.obj;
 			var traffic = response.traffic;
-			var trafficSu = response.trafficSu;
-			var trafficIt = response.trafficIt;
-			var trafficNs = response.trafficNs;
-			var trafficNf = response.trafficNf;
+			var trafficSupportive = response.trafficSupportive;
+			var trafficIntermediate = response.trafficIntermediate;
+			var trafficNotSupportive = response.trafficNotSupportive;
+			var trafficNotFound = response.trafficNotFound;
 			var domain = url.replace(/^(http)?(s)?(:\/\/)?(www\.)?/i, "").replace(/(\/.*)$/i, "");
 
-			var at = document.getElementById("about-title");
-			var ap = document.getElementById("about-p");
-			var aa = document.getElementById("about-a");
-			var cc = document.getElementById("contribute-card");
-			var cp = document.getElementById("contribute-p");
-			var ca = document.getElementById("contribute-a");
+			var aboutTitle = document.getElementById("about-title");
+			var aboutP = document.getElementById("about-p");
+			var aboutA = document.getElementById("about-a");
+			var contributeCard = document.getElementById("contribute-card");
+			var contributeP = document.getElementById("contribute-p");
+			var contributeA = document.getElementById("contribute-a");
 
 			if (typeof obj === "undefined") {
-				at.textContent = "About This Site";
-				aa.parentElement.classList.add("hidden");
-				cc.classList.remove("hidden");
-				cp.textContent = "We don't have any information for " + domain + ", could you contribute what you know about it?";
-				ca.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:" + encodeURIComponent(domain) + "&body=-%20Name:%20%0A-%20Description:%20";
-				ap.textContent = repAboutPData[rep];
+				aboutTitle.textContent = "About This Site";
+				aboutA.parentElement.classList.add("hidden");
+				contributeCard.classList.remove("hidden");
+				contributeP.textContent = "We don't have any information for " + domain + ", could you contribute what you know about it?";
+				contributeA.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:" + encodeURIComponent(domain) + "&body=-%20Name:%20%0A-%20Description:%20";
+				aboutP.textContent = repAboutPData[rep];
 			} else {
-				at.innerHTML = obj.name;
-				cc.classList.add("hidden");
-				ap.innerHTML = obj.description;
+				aboutTitle.innerHTML = obj.name;
+				contributeCard.classList.add("hidden");
+				aboutP.innerHTML = obj.description;
 				if (typeof obj["custom action"] === "undefined") {
-					aa.parentElement.classList.add("hidden");
+					aboutA.parentElement.classList.add("hidden");
 				} else {
-					aa.parentElement.classList.remove("hidden");
-					aa.href = obj["custom action"].href;
-					aa.innerHTML = obj["custom action"].innerHTML;
+					aboutA.parentElement.classList.remove("hidden");
+					aboutA.href = obj["custom action"].href;
+					aboutA.innerHTML = obj["custom action"].innerHTML;
 				}
 			}
 
 			if (typeof traffic === "number" && traffic > 0) {
-				document.getElementById("webtraffic").textContent = "Your web traffic this session is " + Math.round(trafficSu) + "% supportive, " + Math.round(trafficIt) + "% intermediate, " + Math.round(trafficNs) + "% not supportive and, " + Math.round(trafficNf) + "% with no found standing. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
+				document.getElementById("webtraffic").textContent = "Your web traffic this session is " + Math.round(trafficSupportive) + "% supportive, " + Math.round(trafficIntermediate) + "% intermediate, " + Math.round(trafficNotSupportive) + "% not supportive and, " + Math.round(trafficNotFound) + "% not found in our filter. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
 			}
 		});
 		document.getElementById("closepopup").addEventListener("click", function() {

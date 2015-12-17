@@ -2,16 +2,16 @@
 (function() {
 	"use strict";
 
-	var su;
-	var it;
-	var ns;
+	var supportive;
+	var intermedate;
+	var notSupportive;
 	var rep;
 	var url;
 	var traffic;
-	var trafficSu;
-	var trafficIt;
-	var trafficNs;
-	var trafficNf;
+	var trafficSupportive;
+	var trafficIntermediate;
+	var trafficNotSupportive;
+	var trafficNotFound;
 	var trafficPercents;
 
 	function setBrowserActionIcon(iconName) {
@@ -67,12 +67,12 @@
 	}
 
 	function getPatterns(data) {
-		su.data = data.supportive;
-		it.data = data.intermediate;
-		ns.data = data["not supportive"];
+		supportive.data = data.supportive;
+		intermedate.data = data.intermediate;
+		notSupportive.data = data["not supportive"];
 
-		var obj = [su, it, ns];
-		for (var o in [su, it, ns]) {
+		var obj = [supportive, intermedate, notSupportive];
+		for (var o in [supportive, intermedate, notSupportive]) {
 			for (var i in obj[o].data) {
 				if (typeof obj[o].data[i] === "string") {
 					obj[o].array.push(obj[o].data[i].replace(/\./g, "\\."));
@@ -93,18 +93,18 @@
 	}
 
 	// Patterns
-	if (typeof su === "undefined" || typeof it === "undefined" || typeof ns === "undefined") {
-		su = {
+	if (typeof supportive === "undefined" || typeof intermedate === "undefined" || typeof notSupportive === "undefined") {
+		supportive = {
 			"data": [],
 			"array": [],
 			"regex": ""
 		};
-		it = {
+		intermedate = {
 			"data": [],
 			"array": [],
 			"regex": ""
 		};
-		ns = {
+		notSupportive = {
 			"data": [],
 			"array": [],
 			"regex": ""
@@ -129,38 +129,38 @@
 
 	function getObj() {
 		var dataParents = {
-			"su": su,
-			"it": it,
-			"ns": ns
+			"supportive": supportive,
+			"intermedate": intermedate,
+			"notSupportive": notSupportive
 		};
 		return getObjFromData(dataParents[rep].data);
 	}
 
 	// Variables
-	if (typeof traffic === "undefined" || typeof trafficSu === "undefined" || typeof trafficIt === "undefined" || typeof trafficNs === "undefined" || typeof trafficNf === "undefined") {
+	if (typeof traffic === "undefined" || typeof trafficSupportive === "undefined" || typeof trafficIntermediate === "undefined" || typeof trafficNotSupportive === "undefined" || typeof trafficNotFound === "undefined") {
 		traffic = 0;
-		trafficSu = 0;
-		trafficIt = 0;
-		trafficNs = 0;
-		trafficNf = 0;
+		trafficSupportive = 0;
+		trafficIntermediate = 0;
+		trafficNotSupportive = 0;
+		trafficNotFound = 0;
 	}
 	if (typeof rep === "undefined" || typeof url === "undefined") {
-		rep = "nf";
+		rep = "notFound";
 		url = "example.com";
 	}
 
 	// Recive requests for cards from popup
 	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		if (request.message === "open") {
-			trafficPercents = [trafficSu / traffic * 100, trafficIt / traffic * 100, trafficNs / traffic * 100, trafficNf / traffic * 100];
+			trafficPercents = [trafficSupportive / traffic * 100, trafficIntermediate / traffic * 100, trafficNotSupportive / traffic * 100, trafficNotFound / traffic * 100];
 			sendResponse({
 				"url": url,
 				"rep": rep,
 				"traffic": traffic,
-				"trafficSu": trafficPercents[0],
-				"trafficIt": trafficPercents[1],
-				"trafficNs": trafficPercents[2],
-				"trafficNf": trafficPercents[3],
+				"trafficSupportive": trafficPercents[0],
+				"trafficIntermediate": trafficPercents[1],
+				"trafficNotSupportive": trafficPercents[2],
+				"trafficNotFound": trafficPercents[3],
 				"obj": getObj()
 			});
 		}
@@ -169,41 +169,41 @@
 	// Main
 	function main() {
 		// Test Against Regular Expression
-		if (!su.regex == "" && su.regex.test(url)) {
-			rep = "su";
-		} else if (!it.regex == "" && it.regex.test(url)) {
-			rep = "it";
-		} else if (!ns.regex == "" && ns.regex.test(url)) {
-			rep = "ns";
+		if (!supportive.regex === "" && supportive.regex.test(url)) {
+			rep = "supportive";
+		} else if (!intermedate.regex === "" && intermedate.regex.test(url)) {
+			rep = "intermedate";
+		} else if (!notSupportive.regex === "" && notSupportive.regex.test(url)) {
+			rep = "notSupportive";
 		} else {
-			rep = "nf";
+			rep = "notFound";
 		}
 		traffic++;
 
 		// Browser Action Icon and Title
 		// Supportive
-		if (rep === "su") {
+		if (rep === "supportive") {
 			setBrowserActionIcon("supportive");
 			setBrowserActionTitle("Supportive - We LGBT");
-			trafficSu++;
+			trafficSupportive++;
 		}
 		// Intermediate
-		if (rep === "it") {
+		if (rep === "intermedate") {
 			setBrowserActionIcon("intermediate");
 			setBrowserActionTitle("Intermediate - We LGBT");
-			trafficIt++;
+			trafficIntermediate++;
 		}
 		// Not Supportive
-		if (rep === "ns") {
-			setBrowserActionIcon("not-supportive");
+		if (rep === "notSupportive") {
+			setBrowserActionIcon("notSupportive");
 			setBrowserActionTitle("Not Supportive - We LGBT");
-			trafficNs++;
+			trafficNotSupportive++;
 		}
 		// Not Found
-		if (rep === "nf") {
-			setBrowserActionIcon("not-found");
+		if (rep === "notFound") {
+			setBrowserActionIcon("notFound");
 			setBrowserActionTitle("Not Found - We LGBT");
-			trafficNf++;
+			trafficNotFound++;
 		}
 	}
 

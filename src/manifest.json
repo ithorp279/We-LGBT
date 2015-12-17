@@ -20,8 +20,8 @@
 
 	"browser_action": {
 		"default_icon": {
-			"19": "/img/icons/not-found/icon_19.png",
-			"38": "/img/icons/not-found/icon_38.png"
+			"19": "/img/icons/notFound/icon_19.png",
+			"38": "/img/icons/notFound/icon_38.png"
 		},
 		"default_title": "Not Found - We LGBT",
 		"default_popup": "/html/popup.html"
