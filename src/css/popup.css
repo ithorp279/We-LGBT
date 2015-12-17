@@ -35,83 +35,178 @@
 	src: local('Roboto Bold'), local('Roboto-Bold'), url(/font/roboto/Roboto-Bold.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+
+/* Global */
+
 html {
-	min-width:600px;
-	min-height:600px;
+	min-width: 600px;
+	min-height: 600px;
+	height: 100%;
+	line-height: 1.5;
+}
+body {
+	overflow: hidden;
+	height: 100%;
+	margin: 0;
+	background-color: #f5f5f5;
 }
 body * {
 	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	transition: all .3s ease;
+}
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
 }
 .hidden {
 	display: none;
 }
-.card .card-action {
-    border-top: none;
-}
+
+/* Scrollbars & Page Layout */
 .main {
-	margin-bottom: 71.5px;
-	margin-top: 64px;
-	margin-left: 8px;
-	margin-right: 8px;
+	overflow-y: scroll;
+	height: calc(100% - 56px);
+	margin-top: 56px;
+	padding: 0 8px 0 8px;
 }
-.setting {
-	margin: 20px 0;
+.main > *:nth-child(1) {
+	margin-top: 8px;
 }
-.row {
-	margin-bottom: 0;
+.main::-webkit-scrollbar {
+	overflow: visible;
+	height: 8px;
+	width: 8px;
 }
-.settingtitle {
-	font-size: 18px;
+.main::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, .2);
+	background-clip: padding-box;
+	min-height: 32px;
 }
-.settingtext {
-	color: #9e9e9e;
-	font-size: 14px;
+
+
+/* Material */
+
+/* Global */
+/* Links */
+a:not(.card-action):not(.fab) {
+	color: #4db6ac;
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	border-bottom: 2px solid #4db6ac;
+	border-radius: 2px;
+}
+
+a:not(.card-action):not(.fab):hover {
+	background-color: rgba(255, 255, 255, .1);
+}
+
+/* Appbar */
+.appbar {
+	color: #fff;
+	width: 100%;
+	height: 56px;
+	line-height: 56px;
+	background-color: #263238;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.appbar i {
+	height: 56px;
+	line-height: 56px;
+	display: inline;
+	margin-left: 16px;
+	font-size: 28px;
+	cursor: pointer;
 }
 .navtext {
-	font-size: 1.5rem;
-	color:#fff;
-	display: inline-block;
+	font-size: 22px;
 	font-weight: 500;
+	display: inline-block;
+	position: absolute;
+	left: 72px;
 }
+
+/* Header */
 .header {
 	font-size: 16px;
 	font-weight: 400;
-	color: #009688;
-}
-.btn, .card-action > a {
-	font-size: 14px;
+	color: #26a69a;
 }
 
-.card-content > p {
-	font-size: 14px;
+/* Card */
+.card {
+	background-color: #37474f;
+	position: relative;
+	overflow: hidden;
+	margin: 8px 0 8px 0;
+	border-radius: 2px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+/* Card Content */
+.card-content {
+	color: #fff;
+	padding: 24px;
+}
+/* Card Title */
+.card-title {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 1;
+}
+/* Card Body */
+.card-content p {
+	-webkit-margin-before: 12px;
+	-webkit-margin-after: 0;
+}
+/* Card Action */
+.card-action {
+	float: right;
+	margin: 0 12px 12px 12px;
+	padding: 6px 12px;
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	color: #fff;
+	text-transform: uppercase;
+	border-radius: 2px;
+}
+.card-action:hover {
+	background-color: rgba(255, 255, 255, .1);
 }
 
-/* Team */
-.team-card {
-	margin-right: 0 !important;
-	margin-left: 0 !important;
-	height: 233.5px;
-}
-.team-text-a {
-	font-weight: 600;
-}
-.team-text-p, .team-text-a {
-	font-size: 14px;
-}
-.team-card {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% auto
-}
-.team-card.daniel {
-	background-image: url('/img/daniel.png');
-}
-.team-card.corbin {
-	background-image: url('/img/corbin.png');
-}
-
-/* Materialize Override Nav Change with Scrollbars */
-nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+/* Floating Action Button */
+.fab {
+	background-color: #26a69a;
+	position: fixed;
+	bottom: 8px;
+	right: 8px;
+	padding: 0;
+	border-radius: 50%;
+	width: 56px;
 	height: 56px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.fab:hover {
+	background-color: #2bbbad;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.fab i {
 	line-height: 56px;
+	width: inherit;
+	display: inline-block;
+	text-align: center;
+	color: #FFF;
+	font-size: 1.6rem;
+}
+
+
+/* Indiviual */
+
+.card#contribute-card {
+	background-color: #e53935;
 }

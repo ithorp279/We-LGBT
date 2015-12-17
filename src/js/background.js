@@ -128,6 +128,9 @@
 	}
 
 	function getObj() {
+		if (rep === "notFound") {
+			return "notFound";
+		}
 		var dataParents = {
 			"supportive": supportive,
 			"intermedate": intermedate,
@@ -169,11 +172,11 @@
 	// Main
 	function main() {
 		// Test Against Regular Expression
-		if (!supportive.regex === "" && supportive.regex.test(url)) {
+		if (!supportive.regex == "" && supportive.regex.test(url)) {
 			rep = "supportive";
-		} else if (!intermedate.regex === "" && intermedate.regex.test(url)) {
+		} else if (!intermedate.regex == "" && intermedate.regex.test(url)) {
 			rep = "intermedate";
-		} else if (!notSupportive.regex === "" && notSupportive.regex.test(url)) {
+		} else if (!notSupportive.regex == "" && notSupportive.regex.test(url)) {
 			rep = "notSupportive";
 		} else {
 			rep = "notFound";

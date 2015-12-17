@@ -1,86 +1,68 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>We LBGT</title>
-  <link rel="stylesheet" target="_blank" href="/css/materialize.css"></link>
-  <link rel="stylesheet" target="_blank" href="/css/materialdesignicons.min.css"></link>
-  <link rel="stylesheet" target="_blank" href="/css/popup.css"></link>
+	<title>We LBGT</title>
+	<link rel="stylesheet" target="_blank" href="/css/materialdesignicons.min.css"></link>
+	<link rel="stylesheet" target="_blank" href="/css/popup.css"></link>
 </head>
-
 <body>
-  <nav style="background-color: #263238; position: fixed; top: 0; left: 0; z-index: 5;">
-    <div class="nav-wrapper">
-      <i class="mdi mdi-close" id="closepopup" style="display: inline; margin-left: 16px; font-size: 1.8rem; cursor: pointer;"></i>
-      <div style="position: absolute; left: 72px;" class="navtext">We LBGT</div>
-    </div>
-  </nav>
+	<div class="appbar">
+		<i class="mdi mdi-close" id="closepopup"></i>
+		<div class="navtext">We LBGT</div>
+	</div>
 
-  <div class="main">
-    <div class="header">Information:</div>
-    <div class="card red darken-1 hidden" id="contribute-card">
-      <div class="card-content white-text">
-        <p id="contribute-p">We don't have any information for this site, could you contribute what you know about it?</p>
-      </div>
-      <div class="card-action right">
-        <a class="white-text" id="contribute-a" target="_blank" href="https://github.com/xorprojects/We-LGBT/issues/new">Contribute</a>
-      </div>
-    </div>
+	<div class="main">
+		<div class="header">Information:</div>
+		<div class="card hidden" id="contribute-card">
+			<div class="card-content">
+				<p id="contribute-p">We don't have any information for this site, could you contribute what you know about it?</p>
+			</div>
+			<a class="card-action" id="contribute-a" target="_blank" href="https://github.com/xorprojects/We-LGBT/issues/new">Contribute</a>
+		</div>
 
-    <div class="card blue-grey darken-3">
-      <div class="card-content white-text">
-        <span class="card-title" id="about-title">Error</span>
-        <p id="about-p">Error. Please report this to the developers. Do you have have JavaScript disabled?</p>
-      </div>
-      <div class="card-action right">
-        <a class="white-text" id="about-a" target="_blank" href="https://github.com/xorprojects/We-LGBT/issues/new?title=HTML%20Wasn%27t%20Edited%20By%20the%20Script">Report</a>
-      </div>
-    </div>
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title" id="about-title">Error</span>
+				<p id="about-p">Error. Please report this to the developers. Do you have have JavaScript disabled?</p>
+			</div>
+			<a class="card-action" id="about-a" target="_blank" href="https://github.com/xorprojects/We-LGBT/issues/new?title=HTML%20Wasn%27t%20Edited%20By%20the%20Script">Report</a>
+		</div>
 
-    <div class="card blue-grey darken-3">
-      <div class="card-content white-text">
-        <span class="card-title">About Your Web Traffic</span>
-        <p id="webtraffic">You haven't visited any sites.</p>
-      </div>
-    </div>
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">About Your Web Traffic</span>
+				<p id="webtraffic">You haven't visited any sites.</p>
+			</div>
+		</div>
 
-    <div class="header">Learn More:</div>
-    <div class="card blue-grey darken-3">
-      <div class="card-content white-text">
-        <span class="card-title">Wikipedia</span>
-        <p>Read about history and culture from the contributors of Wikipedia's point of view. All content is subject to change with inflammatory or biased content.</p>
-      </div>
-      <div class="card-action right">
-        <a class="white-text" target="_blank" href="https://en.wikipedia.org/wiki/LGBT">Link</a>
-      </div>
-    </div>
+		<div class="header">Learn More:</div>
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">Wikipedia</span>
+				<p>Read about history and culture from the contributors of Wikipedia's point of view. All content is subject to change with inflammatory or biased content.</p>
+			</div>
+			<a class="card-action" target="_blank" href="https://en.wikipedia.org/wiki/LGBT">Link</a>
+		</div>
 
-    <div class="card blue-grey darken-3">
-      <div class="card-content white-text">
-        <span class="card-title">Human Rights Watch</span>
-        <p>Read current events that are effecting the rights of people in the LGBT community.</p>
-      </div>
-      <div class="card-action right">
-        <a class="white-text" target="_blank" href="http://www.hrw.org/topic/lgbt-rights">Link</a>
-      </div>
-    </div>
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">Human Rights Watch</span>
+				<p>Read current events that are effecting the rights of people in the LGBT community.</p>
+			</div>
+			<a class="card-action" target="_blank" href="http://www.hrw.org/topic/lgbt-rights">Link</a>
+		</div>
 
-    <div class="card blue-grey darken-3">
-      <div class="card-content white-text">
-        <span class="card-title">Find a Center</span>
-        <p>Find a center for the LGBT center in your area.</p>
-      </div>
-      <div class="card-action right">
-        <a class="white-text" target="_blank" href="http://www.lgbtcenters.org/Centers/find-a-center.aspx">Link</a>
-      </div>
-    </div>
-  </div>
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">Find a Center</span>
+				<p>Find a center for the LGBT center in your area.</p>
+			</div>
+			<a class="card-action" target="_blank" href="http://www.lgbtcenters.org/Centers/find-a-center.aspx">Link</a>
+		</div>
+	</div>
 
-  <a class="btn-floating btn-large waves-effect teal autonew tooltipped" data-position="left" data-delay="50" data-tooltip="View Code on GitHub" style="position: fixed; bottom:16px; right:16px;" href="https://github.com/xorprojects/We-LGBT" target="_blank"><i class="mdi mdi-github-circle"></i></a>
+	<a class="fab" href="https://github.com/xorprojects/We-LGBT" target="_blank"><i class="mdi mdi-github-circle"></i></a>
 
-  <script src="/js/external/jquery.js"></script>
-  <script src="/js/external/materialize.js"></script>
-  <script src="/js/popup.js"></script>
+	<script src="/js/popup.js"></script>
 </body>
-
 </html>

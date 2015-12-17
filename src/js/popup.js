@@ -3,10 +3,10 @@
 	"use strict";
 
 	var repAboutPData = {
-		"su": "This site is supportive.",
-		"it": "This site is intermediate.",
-		"ns": "This site is not supportive.",
-		"nf": "This site isn't in our filter."
+		"supportive": "This site is supportive.",
+		"intermediate": "This site is intermediate.",
+		"notSupportive": "This site is not supportive.",
+		"notFound": "This site isn't in our filter."
 	};
 
 	function init() {
@@ -21,7 +21,11 @@
 			var trafficIntermediate = response.trafficIntermediate;
 			var trafficNotSupportive = response.trafficNotSupportive;
 			var trafficNotFound = response.trafficNotFound;
-			var domain = url.replace(/^(http)?(s)?(:\/\/)?(www\.)?/i, "").replace(/(\/.*)$/i, "");
+			if (/^(http)(s)?/i.test(url)) {
+				var domain = url.replace(/^(http)?(s)?(:\/\/)?(www\.)?/i, "").replace(/(\/.*)$/i, "");
+			} else {
+				var domain = url;
+			}
 
 			var aboutTitle = document.getElementById("about-title");
 			var aboutP = document.getElementById("about-p");
@@ -30,7 +34,7 @@
 			var contributeP = document.getElementById("contribute-p");
 			var contributeA = document.getElementById("contribute-a");
 
-			if (typeof obj === "undefined") {
+			if (typeof obj === "undefined" || obj === "notFound") {
 				aboutTitle.textContent = "About This Site";
 				aboutA.parentElement.classList.add("hidden");
 				contributeCard.classList.remove("hidden");
