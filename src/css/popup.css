@@ -94,6 +94,9 @@ body * {
 	background-clip: padding-box;
 	min-height: 32px;
 }
+.main > .content {
+	padding-bottom: 72px;
+}
 
 
 /* Material */
