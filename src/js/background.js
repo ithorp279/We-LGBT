@@ -3,24 +3,23 @@
 	"use strict";
 
 	var supportive;
-	var intermedate;
+	var intermediate;
 	var notSupportive;
+	var notFound;
 	var rep;
 	var url;
 	var traffic;
-	var trafficSupportive;
-	var trafficIntermediate;
-	var trafficNotSupportive;
-	var trafficNotFound;
-	var trafficPercents;
+	var dataParents;
 
-	function setBrowserActionIcon(iconName) {
+	function setBrowserActionIcon(local, url) {
 		chrome.browserAction.setIcon({
 			"path": {
-				"19": "/img/icons/" + iconName + "/icon_19.png",
-				"38": "/img/icons/" + iconName + "/icon_38.png"
+				"19": local["19"],
+				"38": local["38"]
 			}
 		});
+
+		// TO-DO: url from image data
 	}
 
 	function setBrowserActionTitle(newTitle) {
@@ -68,20 +67,21 @@
 
 	function getPatterns(data) {
 		supportive.data = data.supportive;
-		intermedate.data = data.intermediate;
-		notSupportive.data = data["not supportive"];
+		intermediate.data = data.intermediate;
+		notSupportive.data = data.notSupportive;
+		notFound.data = data.notFound;
 
-		var obj = [supportive, intermedate, notSupportive];
-		for (var o in [supportive, intermedate, notSupportive]) {
-			for (var i in obj[o].data) {
-				if (typeof obj[o].data[i] === "string") {
-					obj[o].array.push(obj[o].data[i].replace(/\./g, "\\."));
-				} else if (typeof obj[o].data[i] === "object") {
-					if (typeof obj[o].data[i].url === "string") {
-						obj[o].array.push(obj[o].data[i].url.replace(/\./g, "\\."));
-					} else if (Array.isArray(obj[o].data[i].url)) {
-						for (var u in obj[o].data[i].url) {
-							obj[o].array.push(obj[o].data[i].url[u].replace(/\./g, "\\."));
+		var obj = [supportive, intermediate, notSupportive];
+		for (var o in [supportive, intermediate, notSupportive]) {
+			for (var i in obj[o].data.domains) {
+				if (typeof obj[o].data.domains[i] === "string") {
+					obj[o].array.push(obj[o].data.domains[i].replace(/\./g, "\\."));
+				} else if (typeof obj[o].data.domains[i] === "object") {
+					if (typeof obj[o].data.domains[i].url === "string") {
+						obj[o].array.push(obj[o].data.domains[i].url.replace(/\./g, "\\."));
+					} else if (Array.isArray(obj[o].data.domains[i].url)) {
+						for (var u in obj[o].data.domains[i].url) {
+							obj[o].array.push(obj[o].data.domains[i].url[u].replace(/\./g, "\\."));
 						}
 					}
 				}
@@ -93,25 +93,39 @@
 	}
 
 	// Patterns
-	if (typeof supportive === "undefined" || typeof intermedate === "undefined" || typeof notSupportive === "undefined") {
+	if (typeof supportive === "undefined" || typeof intermediate === "undefined" || typeof notSupportive === "undefined") {
 		supportive = {
 			"data": [],
 			"array": [],
-			"regex": ""
+			"regex": "",
+			"traffic": 0
 		};
-		intermedate = {
+		intermediate = {
 			"data": [],
 			"array": [],
-			"regex": ""
+			"regex": "",
+			"traffic": 0
 		};
 		notSupportive = {
 			"data": [],
 			"array": [],
-			"regex": ""
+			"regex": "",
+			"traffic": 0
+		};
+		notFound = {
+			"data": [],
+			"traffic": 0
+		};
+
+		dataParents = {
+			"supportive": supportive,
+			"intermediate": intermediate,
+			"notSupportive": notSupportive,
+			"notFound": notFound
 		};
 
 		// Get Patterns
-		getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/rep.json", "/js/rep.json").then(getPatterns);
+		getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/data.json", "/js/data.json").then(getPatterns);
 	}
 
 	function getObjFromData(data) {
@@ -131,21 +145,12 @@
 		if (rep === "notFound") {
 			return "notFound";
 		}
-		var dataParents = {
-			"supportive": supportive,
-			"intermedate": intermedate,
-			"notSupportive": notSupportive
-		};
 		return getObjFromData(dataParents[rep].data);
 	}
 
 	// Variables
-	if (typeof traffic === "undefined" || typeof trafficSupportive === "undefined" || typeof trafficIntermediate === "undefined" || typeof trafficNotSupportive === "undefined" || typeof trafficNotFound === "undefined") {
+	if (typeof traffic === "undefined") {
 		traffic = 0;
-		trafficSupportive = 0;
-		trafficIntermediate = 0;
-		trafficNotSupportive = 0;
-		trafficNotFound = 0;
 	}
 	if (typeof rep === "undefined" || typeof url === "undefined") {
 		rep = "notFound";
@@ -155,15 +160,14 @@
 	// Recive requests for cards from popup
 	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		if (request.message === "open") {
-			trafficPercents = [trafficSupportive / traffic * 100, trafficIntermediate / traffic * 100, trafficNotSupportive / traffic * 100, trafficNotFound / traffic * 100];
 			sendResponse({
 				"url": url,
 				"rep": rep,
 				"traffic": traffic,
-				"trafficSupportive": trafficPercents[0],
-				"trafficIntermediate": trafficPercents[1],
-				"trafficNotSupportive": trafficPercents[2],
-				"trafficNotFound": trafficPercents[3],
+				"trafficSupportive": supportive.traffic / traffic * 100,
+				"trafficIntermediate": intermediate.traffic / traffic * 100,
+				"trafficNotSupportive": notSupportive.traffic / traffic * 100,
+				"trafficNotFound": notFound.traffic / traffic * 100,
 				"obj": getObj()
 			});
 		}
@@ -174,40 +178,19 @@
 		// Test Against Regular Expression
 		if (!supportive.regex == "" && supportive.regex.test(url)) {
 			rep = "supportive";
-		} else if (!intermedate.regex == "" && intermedate.regex.test(url)) {
-			rep = "intermedate";
+		} else if (!intermediate.regex == "" && intermediate.regex.test(url)) {
+			rep = "intermediate";
 		} else if (!notSupportive.regex == "" && notSupportive.regex.test(url)) {
 			rep = "notSupportive";
 		} else {
 			rep = "notFound";
 		}
-		traffic++;
 
-		// Browser Action Icon and Title
-		// Supportive
-		if (rep === "supportive") {
-			setBrowserActionIcon("supportive");
-			setBrowserActionTitle("Supportive - We LGBT");
-			trafficSupportive++;
-		}
-		// Intermediate
-		if (rep === "intermedate") {
-			setBrowserActionIcon("intermediate");
-			setBrowserActionTitle("Intermediate - We LGBT");
-			trafficIntermediate++;
-		}
-		// Not Supportive
-		if (rep === "notSupportive") {
-			setBrowserActionIcon("notSupportive");
-			setBrowserActionTitle("Not Supportive - We LGBT");
-			trafficNotSupportive++;
-		}
-		// Not Found
-		if (rep === "notFound") {
-			setBrowserActionIcon("notFound");
-			setBrowserActionTitle("Not Found - We LGBT");
-			trafficNotFound++;
-		}
+		// Browser Action Icon, Title, and Traffic Counter
+		traffic++;
+		dataParents[rep].traffic++;
+		setBrowserActionTitle(dataParents[rep].data.title);
+		setBrowserActionIcon(dataParents[rep].data.icon.local, dataParents[rep].data.icon.url)
 	}
 
 	// When URL Changed

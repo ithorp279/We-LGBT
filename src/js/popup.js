@@ -49,7 +49,7 @@
 					aboutA.parentElement.classList.add("hidden");
 				} else {
 					aboutA.parentElement.classList.remove("hidden");
-					aboutA.href = obj["custom action"].href;
+					aboutA.href = encodeURI(obj["custom action"].href);
 					aboutA.innerHTML = obj["custom action"].innerHTML;
 				}
 			}
