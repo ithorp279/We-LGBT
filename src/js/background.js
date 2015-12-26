@@ -32,7 +32,7 @@
 	function getJSON(fileUrl, local) {
 		return new Promise(function(resolve, reject) {
 			function handleError(connectionError) {
-				var usingBackup = typeof local === "undefined";
+				var usingBackup = typeof local !== "undefined";
 				var message = (connectionError ? "There was a connection error of some sort" : "We reached our target server, but it returned an error") +
 					(usingBackup ? ". Using" : " and there wasn't a") +
 					" backup local file.";
