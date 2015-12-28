@@ -1,6 +1,6 @@
 {
 	"name": "We LGBT",
-	"version": "0.7.5",
+	"version": "0.7.6",
 	"minimum_chrome_version": "36",
 	"icons": { 
 		"16": "/img/icons/icon_16.png",
@@ -16,7 +16,7 @@
 
 	"background": {
 		"scripts": ["/js/background.js"],
-		"persistent": true
+		"persistent": false
 	},
 
 	"browser_action": {
