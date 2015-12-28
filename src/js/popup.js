@@ -58,8 +58,17 @@
 				document.getElementById("webtraffic").textContent = "Your web traffic this session is " + Math.round(trafficSupportive) + "% supportive, " + Math.round(trafficIntermediate) + "% intermediate, " + Math.round(trafficNotSupportive) + "% not supportive and, " + Math.round(trafficNotFound) + "% not found in our filter. We don't record your web traffic, this is only calculated by our URL filter. (Rounded)";
 			}
 		});
+
 		document.getElementById("closepopup").addEventListener("click", function() {
 			window.close();
+		});
+
+		document.getElementById("webtraffic-update").addEventListener("click", function() {
+			chrome.runtime.sendMessage({
+				"message": "update"
+			}, function(response) {
+				document.getElementById("webtraffic-update").textContent = response;
+			});
 		});
 	}
 

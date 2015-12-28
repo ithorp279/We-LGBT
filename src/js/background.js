@@ -168,7 +168,10 @@
 				"trafficNotFound": notFound.traffic / traffic * 100,
 				"obj": getObj()
 			});
-		}
+		} else if (request.message === "update") {
+			getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/data.json", "/js/data.json").then(getPatterns);
+			sendResponse("Updated!");
+		};
 	});
 
 	// Main
