@@ -209,4 +209,15 @@
 			main();
 		});
 	});
+
+	// When Window Focused
+	chrome.windows.onFocusChanged.addListener(function() {
+		chrome.tabs.query({
+			"active": true,
+			"lastFocusedWindow": true
+		}, function(tabs) {
+			url = tabs[0].url;
+			main();
+		});
+	});
 })();
