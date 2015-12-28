@@ -205,7 +205,7 @@ a:not(.card-action):not(.fab):hover {
 	background-color: #26a69a;
 	position: fixed;
 	bottom: 8px;
-	right: 8px;
+	right: 16px;
 	padding: 0;
 	border-radius: 50%;
 	width: 56px;

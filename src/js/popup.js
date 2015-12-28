@@ -70,6 +70,10 @@
 				document.getElementById("webtraffic-update").textContent = response;
 			});
 		});
+
+		document.getElementsByClassName('fab')[0].ondragstart = function() {
+			return false;
+		};
 	}
 
 	document.addEventListener("DOMContentLoaded", init);
