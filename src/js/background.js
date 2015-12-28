@@ -11,15 +11,13 @@
 	var traffic;
 	var dataParents;
 
-	function setBrowserActionIcon(local, url) {
+	function setBrowserActionIcon(local) {
 		chrome.browserAction.setIcon({
 			"path": {
 				"19": local["19"],
 				"38": local["38"]
 			}
 		});
-
-		// TO-DO: url from image data
 	}
 
 	function setBrowserActionTitle(newTitle) {
@@ -129,13 +127,13 @@
 	}
 
 	function getObjFromData(data) {
-		for (var i in data) {
-			if (typeof data[i] === "object") {
-				var urlsData = data[i].url;
+		for (var i in data.domains) {
+			if (typeof data.domains[i] === "object") {
+				var urlsData = data.domains[i].url;
 				var urlsDataString = Array.isArray(urlsData) ? urlsData.join("|") : urlsData;
 				var regex = new RegExp("^(http)?(s)?(:\\/\\/)?(\\w+\\.)*(" + urlsDataString + ")", "i");
 				if (regex.test(url)) {
-					return data[i];
+					return data.domains[i];
 				}
 			}
 		}
@@ -190,7 +188,7 @@
 		traffic++;
 		dataParents[rep].traffic++;
 		setBrowserActionTitle(dataParents[rep].data.title);
-		setBrowserActionIcon(dataParents[rep].data.icon.local, dataParents[rep].data.icon.url)
+		setBrowserActionIcon(dataParents[rep].data.icon.local)
 	}
 
 	// When URL Changed
