@@ -115,7 +115,15 @@
 			"verizonwireless.com",
 			"vcbconsulting.biz",
 			"uptownphysiciansgroup.com",
-			"twitter.com",
+			{
+				"url": "twitter.com",
+				"name": "Twitter",
+				"description": "Twitter has shown support for the LGBT community before, for example by adding a feature to Twitter that added a rainbow emoji to the hashtag #lovewins after the approval of the gay marriage on all the states is USA. They alse signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a>.",
+				"custom action": {
+					"innerHTML": "Twitter Open",
+					"href": "https://twitter.com/TwitterOpen/status/614465797507821568"
+				}
+			}
 			"tuttabella.com",
 			"travelout.com",
 			"206inc.com",
