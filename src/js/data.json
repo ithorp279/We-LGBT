@@ -637,7 +637,16 @@
 			"scopemouthwash.com",
 			"spotify.com",
 			"freedomtomarry.org",
-			"carlosjeurissen.com"
+			"carlosjeurissen.com",
+			{
+				"url": ["wikimedia.org", "wikimediafoundation.org", "wikipedia.org", "wikibooks.org", "wikiversity.org", "wikidata.org", "wikivoyage.org", "wikiquote.org", "wiktionary.org", "wikinews.org", "wikisource.org", "mediawiki.org"],
+				"name": "Wikimedia Foundation",
+				"description": "Wikimedia LGBT+ is a Wikimedia user group and proposed thematic organization, first announced at Wikimania in 2012. The Wikimedia LGBT+ User Group was approved by the Affiliations Committee in September 2014. The group promotes the development of content on Wikimedia projects which is of interest to LGBT communities.",
+				"custom action": {
+					"innerHTML": "Wikimedia Portal",
+					"href": "https://meta.wikimedia.org/wiki/Wikimedia_LGBT/Portal"
+				}
+			}
 		]
 	},
 	"intermediate": {
