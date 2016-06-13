@@ -21,10 +21,11 @@
 			var trafficIntermediate = response.trafficIntermediate;
 			var trafficNotSupportive = response.trafficNotSupportive;
 			var trafficNotFound = response.trafficNotFound;
+			var domain;
 			if (/^(http)(s)?/i.test(url)) {
-				var domain = url.replace(/^(http)?(s)?(:\/\/)?(www\.)?/i, "").replace(/(\/.*)$/i, "");
+				domain = url.replace(/^(http)?(s)?(:\/\/)?(www\.)?/i, "").replace(/(\/.*)$/i, "");
 			} else {
-				var domain = url;
+				domain = url;
 			}
 
 			var aboutTitle = document.getElementById("about-title");
@@ -39,16 +40,16 @@
 				aboutA.parentElement.classList.add("hidden");
 				contributeCard.classList.remove("hidden");
 				contributeP.textContent = "We don't have any information for " + domain + ", could you contribute what you know about it?";
-				contributeA.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:" + encodeURIComponent(domain) + "&body=-%20Name:%20%0A-%20Description:%20";
+				contributeA.href = "https://github.com/xorprojects/We-LGBT/issues/new?title=Missing%20Information%20For:%20" + encodeURIComponent(domain) + "&body=-%20Name%20of%20Company:%20%0A-%20Description:%20";
 				aboutP.textContent = repAboutPData[rep];
 			} else {
 				aboutTitle.innerHTML = obj.name;
 				contributeCard.classList.add("hidden");
 				aboutP.innerHTML = obj.description;
 				if (typeof obj["custom action"] === "undefined") {
-					aboutA.parentElement.classList.add("hidden");
+					aboutA.classList.add("hidden");
 				} else {
-					aboutA.parentElement.classList.remove("hidden");
+					aboutA.classList.remove("hidden");
 					aboutA.href = encodeURI(obj["custom action"].href);
 					aboutA.innerHTML = obj["custom action"].innerHTML;
 				}
@@ -71,7 +72,7 @@
 			});
 		});
 
-		document.getElementsByClassName('fab')[0].ondragstart = function() {
+		document.getElementsByClassName("fab")[0].ondragstart = function() {
 			return false;
 		};
 	}
