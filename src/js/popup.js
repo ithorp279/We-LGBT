@@ -64,14 +64,6 @@
 			window.close();
 		});
 
-		document.getElementById("webtraffic-update").addEventListener("click", function() {
-			chrome.runtime.sendMessage({
-				"message": "update"
-			}, function(response) {
-				document.getElementById("webtraffic-update").textContent = response;
-			});
-		});
-
 		document.getElementsByClassName("fab")[0].ondragstart = function() {
 			return false;
 		};

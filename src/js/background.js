@@ -11,6 +11,8 @@
 	var traffic;
 	var dataParents;
 	var activeTab;
+	var lastDataDate;
+	var dataUrl = "https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/data.json";
 
 	function setBrowserActionIcon(local) {
 		chrome.browserAction.setIcon({
@@ -70,6 +72,8 @@
 		notSupportive.data = data.notSupportive;
 		notFound.data = data.notFound;
 
+		lastDataDate = Date.now() / 86400;
+
 		var obj = [supportive, intermediate, notSupportive];
 		for (var o in [supportive, intermediate, notSupportive]) {
 			for (var i in obj[o].data.domains) {
@@ -124,7 +128,7 @@
 		};
 
 		// Get Patterns
-		getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/data.json", "/js/data.json").then(getPatterns);
+		getJSON(dataUrl, "/js/data.json").then(getPatterns);
 	}
 
 	function getObjFromData(data) {
@@ -169,9 +173,6 @@
 				"trafficNotFound": notFound.traffic / traffic * 100,
 				"obj": getObj()
 			});
-		} else if (request.message === "update") {
-			getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/data.json", "/js/data.json").then(getPatterns);
-			sendResponse("Updated!");
 		}
 	});
 
@@ -193,6 +194,10 @@
 		dataParents[rep].traffic++;
 		setBrowserActionTitle(dataParents[rep].data.title);
 		setBrowserActionIcon(dataParents[rep].data.icon.local);
+
+		if (lastDataDate + 1 <= Date.now() / 86400) {
+			getJSON(dataUrl, "/js/data.json").then(getPatterns);
+		}
 	}
 
 	// When URL Changed
