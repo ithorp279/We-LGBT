@@ -47,7 +47,7 @@
 			{
 				"url": ["bethesda.net", "bethsoft.com"],
 				"name": "Bethesda Softworks",
-				"description": "After the Orlando shooting in 2016, Bethesda changed their profile pictures on both accounts and posted <a href=\"https://twitter.com/bethesda/status/742117999004418048\">this Tweet</a> (<a href=\"https://web.archive.org/web/20160613131926/https:/twitter.com/bethesda/status/742117999004418048\">archived version</a>)."
+				"description": "After the Orlando shooting in 2016, Bethesda changed their profile pictures on both accounts and posted <a href=\"https://twitter.com/bethesda/status/742117999004418048\" target=\"_blank\">this Tweet</a> (<a href=\"https://web.archive.org/web/20160613131926/https:/twitter.com/bethesda/status/742117999004418048\" target=\"_blank\">archived version</a>)."
 			},
 			"indiana.edu",
 			"medium.com",
@@ -101,7 +101,7 @@
 			{
 				"url": ["coca-colacompany.com", "coca-cola.com", "cocacola.com", "us.coca-cola.com", "dietcoke.com", "cokezero.com", "coca-colafreestyle.com", "mycokerewards.com", "icoke.ca", "coca-cola.ca", "coca-cola.com.ar", "coca-cola.com.bz", "coca-cola.bs", "coca-cola.com.bo", "cocacola.com.br", "caribbean.coca-cola.com", "coca-cola.cl", "coca-cola.com.co", "coca-cola.co.cr", "coca-cola.com.do", "coca-cola.com.sv", "coca-cola.com.gt", "coca-cola.com.hn", "coca-cola.com.mx", "happiness.coca-cola.com", "coke.ch", "coca-cola.az", "coca-cola.com.qa", "coca-cola.by", "coca-cola.in", "cocacola.co.il", "coca-cola.kz", "coca-cola.com.pk", "coca-cola.ps", "coca-cola.ru", "coca-cola.com.tr", "coca-cola.ua", "coca-cola.ae", "coca-cola.it", "coca-cola.ee", "coca-cola.lt", "coca-cola.lu", "coke.pl", "coca-cola.lv", "cocacola.pt", "coca-cola.ro", "coca-cola.rs", "coca-cola.sk", "coca-cola.si", "cocacola.es", "coca-cola.com.ni", "coca-cola.com.pa", "coca-cola.com.py", "coca-cola.com.pe", "coca-cola.com.tt", "coca-cola.com.uy", "coca-cola.com.ve", "coke.at", "coca-cola.be", "coca-cola.be", "coca-cola.ba", "coca-cola.bg", "coca-cola.hr", "coca-cola.cz", "coke.de", "coca-cola.gr", "secure.coca-cola.hu", "coca-cola.hu", "coke.is", "coke.eg", "coca-cola.co.ke", "coca-cola.rw", "coke.co.za", "coca-cola.com", "coca-cola.co.tz", "tunisia.coca-cola.com", "coca-cola.co.ug", "coca-cola.co.zw", "icoke.co.th", "cocacola.com.au", "coca-cola.com.bd", "icoke.hk", "coca-cola.co.id", "cocacola.jp", "coke.com.my", "coca-cola.com.mv", "coca-cola.co.nz", "icoke.cn", "coca-cola.com.ph", "cocacola.co.kr", "coca-cola.com.sg", "coca-cola.lk", "ahh.com"],
 				"name": "The Coca-Cola Company",
-				"description": "Coca-Cola is supportive of the gay community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a>."
+				"description": "Coca-Cola is supportive of the gay community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\" target=\"_blank\">amicus brief for gay marriage to the Supreme Court</a>."
 			},
 			"wellsfargo.com",
 			"xerox.com",
@@ -125,7 +125,7 @@
 			{
 				"url": ["thewaltdisneycompany.com", "waltdisneystudios.com", "marvel.com", "disney.com", "go.com", "disneystore.com", "disneytheatricalgroup.com", "disneyonbroadway.com", "disneyonice.com", "disneylive.com", "disneytheatricallicensing.com", "disneyanimation.com", "pixar.com", "hollywoodrecords.com", "clubpenguin.com", "disneymoviesanywhere.com", "disneystorycentral.com"],
 				"name": "The Walt Disney Company",
-				"description": "The Walt Disney Company is supportive of the gay community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a>.",
+				"description": "The Walt Disney Company is supportive of the gay community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\" target=\"_blank\">amicus brief for gay marriage to the Supreme Court</a>.",
 				"custom action": {
 					"innerHTML": "Read More",
 					"href": "http://mic.com/articles/50847/5-signs-that-disney-has-supported-gay-rights-for-over-2-decades"
@@ -146,7 +146,7 @@
 			{
 				"url": "twitter.com",
 				"name": "Twitter",
-				"description": "Twitter has shown support for the LGBT community before, for example by adding a feature to Twitter that added a rainbow emoji to the hashtag #lovewins after the approval of the gay marriage on all the states is USA. They alse signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a>.",
+				"description": "Twitter has shown support for the LGBT community before, for example by adding a feature to Twitter that added a rainbow emoji to the hashtag #lovewins after the approval of the gay marriage on all the states is USA. They alse signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\" target=\"_blank\">amicus brief for gay marriage to the Supreme Court</a>.",
 				"custom action": {
 					"innerHTML": "Twitter Open",
 					"href": "https://twitter.com/TwitterOpen/status/614465797507821568"
@@ -294,7 +294,7 @@
 			{
 				"url": "target.com",
 				"name": "Target",
-				"description": "Target is supportive of the gay community as well as the LGBT community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a> and <a href=\"https://corporate.target.com/article/2016/04/target-stands-inclusivity\">supported the fedral Equality Act</a> as well as having a progressive bathroom policy."
+				"description": "Target is supportive of the gay community as well as the LGBT community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\" target=\"_blank\">amicus brief for gay marriage to the Supreme Court</a> and <a href=\"https://corporate.target.com/article/2016/04/target-stands-inclusivity\" target=\"_blank\">supported the fedral Equality Act</a> as well as having a progressive bathroom policy."
 			},
 			"tampabay.rays.mlb.com",
 			"hobees.com",
@@ -305,7 +305,7 @@
 			{
 				"url": ["minecraft.net", "mojang.com"],
 				"name": "Mojang",
-				"description": "Mojang and Minecraft are supportive of the gay community. They have shown support by changing <a href\"https://web.archive.org/web/20150702173003/https:/twitter.com/mojang\">their Twitter profile picture</a> after the legalization of equal marriage rights in the U.S. They kept it for many months. They didn't post or Tweet a statement and didn't sign any petitions that we could find."
+				"description": "Mojang and Minecraft are supportive of the gay community. They have shown support by changing <a href\"https://web.archive.org/web/20150702173003/https:/twitter.com/mojang\" target=\"_blank\">their Twitter profile picture</a> after the legalization of equal marriage rights in the U.S. They kept it for many months. They didn't post or Tweet a statement and didn't sign any petitions that we could find."
 			},
 			"michiganpneumatic.com",
 			"glccnv.org",
@@ -357,7 +357,7 @@
 			{
 				"url": ["google.com", "abc.xyz", "googlecapital.com", "gv.com", "verily.com", "sidewalklabs.com", "calicolabs.com", "itasoftware.com", "creativelab5.com", "bufferbox.com", "zagat.com", "doubleclickbygoogle.com", "on2.com", "songza.com", "panoramio.com", "blogger.com", "google.ac", "google.ad", "google.ae", "google.al", "google.am", "google.co", "google.as", "google.at", "google.az", "google.ba", "google.be", "google.bf", "google.bg", "google.bi", "google.bj", "google.bs", "google.bt", "google.co", "google.by", "google.co", "google.cc", "google.cd", "google.cf", "google.cat", "google.cg", "google.ch", "google.ci", "google.co", "google.cl", "google.cm", "google.cn", "g.cn", "google.co", "google.cv", "google.cz", "google.de", "google.dj", "google.dk", "google.dm", "google.dz", "google.ee", "google.es", "google.fi", "google.fm", "google.fr", "google.ga", "google.ge", "google.gf", "google.gg", "google.gl", "google.gm", "google.gp", "google.gr", "google.gy", "google.hn", "google.hr", "google.ht", "google.hu", "google.co", "google.iq", "google.ie", "google.co", "google.im", "google.co", "google.io", "google.is", "google.it", "google.je", "google.jo", "google.co", "google.co", "google.ki", "google.kg", "google.co", "google.kz", "google.la", "google.li", "google.lk", "google.co", "google.lt", "google.lu", "google.lv", "google.co", "google.md", "google.me", "google.mg", "google.mk", "google.ml", "google.mn", "google.ms", "google.mu", "google.mv", "google.mw", "google.co", "google.ne", "google.nl", "google.no", "google.nr", "google.nu", "google.co", "google.pl", "google.pn", "google.ps", "google.pt", "google.ro", "google.rs", "google.ru", "google.rw", "google.sc", "google.se", "google.sh", "google.si", "google.sk", "google.sn", "google.sm", "google.so", "google.st", "google.td", "google.tg", "google.co", "google.tk", "google.tl", "google.tm", "google.to", "google.tn", "google.tt", "google.co", "google.co", "google.co", "google.us", "google.co", "google.co", "google.vg", "google.co", "google.vu", "google.ws", "google.co", "google.co", "google.co", "admob.com", "adsense.com", "adwords.com", "android.com", "blogger.com", "blogspot.com", "chromium.org", "chrome.com", "chromebook.com", "com.google", "feedburner.com", "doubleclick.com", "igoogle.com", "foofle.com", "froogle.com", "googleanalytics.com", "analytics.com", "googlecode.com", "googlesource.com", "googledrive.com", "googlearth.com", "googleearth.com", "googlemaps.com", "googlepagecreator.com", "googlescholar.com", "gmail.com", "googlemail.com", "keyhole.com", "madewithcode.com", "panoramio.com", "picasa.com", "sketchup.com", "urchin.com", "waze.com", "youtube.com", "youtu.be", "yt.be", "ytimg.com", "youtubeeducation.com", "nocookie.com", "like.com", "Google.org", "google.org", "google.net", "466453.com", "gooogle.com", "gogle.com", "ggoogle.com", "gogole.com", "goolge.com", "googel.com", "googlee.com", "googil.com", "googlr.com", "googl.com", "ggpht.com", "gmodules.com", "gtempaccount.com", "googleadservices.com", "googleapps.com", "googleapis.com", "goo.gl", "googlebot.com", "googlecommerce.com", "googlesyndication.com", "whatbrowser.org", "withgoogle.com", "getmdl.io"],
 				"name": "Google (and Alphabet)",
-				"description": "Alphabet and its subsidiaries (Google, YouTube, Android, etc) are supportive of the gay community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\">amicus brief for gay marriage to the Supreme Court</a> and continues to create videos, pages, and <a href\"http://www.huffingtonpost.com/2013/06/26/google-gay_n_3503445.html\">easter eggs</a> for the LGBT+ community.",
+				"description": "Alphabet and its subsidiaries (Google, YouTube, Android, etc) are supportive of the gay community. They signed the <a href=\"http://freemarry.3cdn.net/12510e39d67076ca00_u0m6i2a33.pdf\" target=\"_blank\">amicus brief for gay marriage to the Supreme Court</a> and continues to create videos, pages, and <a href\"http://www.huffingtonpost.com/2013/06/26/google-gay_n_3503445.html\" target=\"_blank\">easter eggs</a> for the LGBT+ community.",
 				"custom action": {
 					"innerHTML": "Google Diversity",
 					"href": "https://www.google.com/diversity/at-google.html"
