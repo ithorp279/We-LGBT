@@ -171,7 +171,7 @@
 		} else if (request.message === "update") {
 			getJSON("https://raw.githubusercontent.com/xorprojects/We-LGBT/master/src/js/data.json", "/js/data.json").then(getPatterns);
 			sendResponse("Updated!");
-		};
+		}
 	});
 
 	// Main
@@ -191,7 +191,7 @@
 		traffic++;
 		dataParents[rep].traffic++;
 		setBrowserActionTitle(dataParents[rep].data.title);
-		setBrowserActionIcon(dataParents[rep].data.icon.local)
+		setBrowserActionIcon(dataParents[rep].data.icon.local);
 	}
 
 	// When URL Changed

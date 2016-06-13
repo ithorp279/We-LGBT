@@ -21,6 +21,15 @@
 					"href": "https://www.hrw.org/topic/lgbt-rights"
 				}
 			},
+			{
+				"url": "stonewall.org.uk",
+				"name": "StoneWall",
+				"description": "Stonewall is the UK's leading LGBT*QIA+ Charity.",
+				"custom action": {
+					"innerHTML": "Donate",
+					"href": "https://www.stonewall.org.uk/support-stonewall"
+				}
+			},
 			"indiana.edu",
 			"medium.com",
 			"github.com",
