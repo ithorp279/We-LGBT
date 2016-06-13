@@ -30,6 +30,20 @@
 					"href": "https://www.stonewall.org.uk/support-stonewall"
 				}
 			},
+			{
+				"url": "westvancouverhomewatch.com",
+				"name": "West Vancouver Home Watch",
+				"description": "\"It should be the same rights for LGBT as for everyone else.\" - Owner of West Vancouver Home Watch via GitHub"
+			},
+			{
+				"url": "tumblr.com",
+				"name": "Tumblr",
+				"description": "Tumblr hosts a large community for LGBT+ individuals and the Tumblr staff have posted support for the LGBT+ community as well as sponsoring meetups.",
+				"custom action": {
+					"innerHTML": "LGBT Hashtag",
+					"href": "https://www.tumblr.com/search/lgbt"
+				}
+			},
 			"indiana.edu",
 			"medium.com",
 			"github.com",
