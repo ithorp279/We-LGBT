@@ -10,6 +10,7 @@
 	var url;
 	var traffic;
 	var dataParents;
+	var activeTab;
 
 	function setBrowserActionIcon(local) {
 		chrome.browserAction.setIcon({
@@ -196,7 +197,7 @@
 
 	// When URL Changed
 	chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-		if (changeInfo.status === "complete") {
+		if (changeInfo.status === "complete" && tabId === activeTab) {
 			url = tab.url;
 			main();
 		}
@@ -208,6 +209,7 @@
 			"active": true,
 			"lastFocusedWindow": true
 		}, function(tabs) {
+			activeTab = tabs[0].id;
 			url = tabs[0].url;
 			main();
 		});
@@ -219,8 +221,10 @@
 			"active": true,
 			"lastFocusedWindow": true
 		}, function(tabs) {
-			url = tabs[0].url;
-			main();
+			if (typeof tabs[0] !== "undefined") {
+				url = tabs[0].url;
+				main();
+			}
 		});
 	});
 })();
