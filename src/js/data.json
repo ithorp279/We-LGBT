@@ -23,11 +23,20 @@
 			},
 			{
 				"url": "stonewall.org.uk",
-				"name": "StoneWall",
+				"name": "Stonewall",
 				"description": "Stonewall is the UK's leading LGBT*QIA+ Charity.",
 				"custom action": {
 					"innerHTML": "Donate",
 					"href": "https://www.stonewall.org.uk/support-stonewall"
+				}
+			},
+			{
+				"url": "greenparty.org.uk",
+				"name": "Green Party",
+				"description": "The Green Party for England and Wales has a <a href=\"https://lgbtiq.greenparty.org.uk/\" target=\"_blank\">dedicated site to LGBT+ rights</a>.",
+				"custom action": {
+					"innerHTML": "Donate",
+					"href": "https://www.paypal.me/LGBTIQGreens"
 				}
 			},
 			{
