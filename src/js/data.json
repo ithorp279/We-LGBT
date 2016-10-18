@@ -40,6 +40,29 @@
 				}
 			},
 			{
+				"url": "younggreens.org.uk",
+				"name": "Young Greens of England and Wales",
+				"description": "Young Greens of England and Wales has been supportive of the LGBT community.",
+				"custom action": {
+					"innerHTML": "Donate",
+					"href": "http://younggreens.org.uk/about-us/get-involved/donate/"
+				}
+			},
+			{
+				"url": "eheadspace.org.au",
+				"name": "Headspace Australia",
+				"description": "Headspace Australia is a supportive mental heath online help website that has helped memebers with LGBT related issues."
+			},
+			{
+				"url": "subaru.com",
+				"name": "Subaru",
+				"description": "Subaru has had lesbian inclusive advertisement (albeit for monetary gain) that affected the rest of the automotive industry.",
+				"custom action": {
+					"innerHTML": "Further Reading",
+					"href": "http://www.lgbtqnation.com/2016/06/lesbians-didnt-created-lezbaru-subaru-marketers/"
+				}
+			},
+			{
 				"url": "westvancouverhomewatch.com",
 				"name": "West Vancouver Home Watch",
 				"description": "\"It should be the same rights for LGBT as for everyone else.\" - Owner of West Vancouver Home Watch via GitHub"
@@ -60,8 +83,20 @@
 			},
 			"indiana.edu",
 			"medium.com",
-			"github.com",
-			"stackoverflow.com",
+			{
+				"url": "github.com",
+				"name": "GitHub",
+				"description": "GitHub changed their logo after the legalization of equal marriage rights in the U.S. as well as sold merchandise with the logo on it."
+			},
+			{
+				"url": "stackoverflow.com",
+				"name": "Stack Overflow",
+				"description": "Stack Overflow changed their logo after the legalization of equal marriage rights in the U.S.",
+				"custom action": {
+					"innerHTML": "SO Meta Thread",
+					"href": "http://meta.stackoverflow.com/questions/297859/can-stack-overflow-and-metas-logos-be-changed-temporarily-to-the-loveoverflow"
+				}
+			},
 			"buzzfeed.com",
 			"att.com",
 			"uber.com",
