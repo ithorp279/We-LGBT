@@ -13,6 +13,11 @@
 		},
 		"domains": [
 			{
+				"url": "lgbtcenters.org",
+				"name": "LGBT Community Centers",
+				"description": "CenterLink for gay, lesbian, bisexual and transgender"
+			},
+			{
 				"url": "hrw.org",
 				"name": "Human Rights Watch",
 				"description": "Human Rights Watch is supportive of the LGBT+ community.",
